@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
+    [SerializeField] float cameraSpeed;
     [SerializeField] GameObject[] cameraLocations;
     int cameraLocation;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        transform.position = (cameraLocations[cameraLocation].transform.position);
+        transform.position = Vector2.Lerp(transform.position, cameraLocations[cameraLocation].transform.position, cameraSpeed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ChangeWeapons();
+        }
     }
-    public void ChangeWeapons(KeyCode press)
+    
+    public void ChangeWeapons()
     {
+        cameraLocation++;
+        cameraLocation = cameraLocation % 4;
         /*if (press != KeyCode.Space)
         {
             switch (press)
@@ -43,10 +43,6 @@ public class CameraBehavior : MonoBehaviour
 
         }
         */
-        if(press == KeyCode.Space)
-        {
-            cameraLocation++;
-            cameraLocation = cameraLocation % 4;
-        }
+
     }
 }
