@@ -14,10 +14,6 @@ public class CameraBehavior : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.Lerp(new Vector3(transform.position.x, transform.position.y,10),new Vector3(cameraLocations[cameraLocation].transform.position.x, cameraLocations[cameraLocation].transform.position.y,10), cameraSpeed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeGunnerView();
-        }
     }
     
     public void ChangeGunnerView()
