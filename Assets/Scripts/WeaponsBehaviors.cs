@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponsBehaviors : MonoBehaviour
 {
+    [SerializeField] GameObject bulletType;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,21 +18,7 @@ public class WeaponsBehaviors : MonoBehaviour
     }
     public void FireWeapon(int weapon)
     {
-        switch (weapon)
-        {
-            case 0:
-                Debug.Log("Bango" + weapon);
-                return;
-            case 1:
-                Debug.Log("Bango" + weapon);
-                return;
-            case 2:
-                Debug.Log("Bango" + weapon);
-                return;
-            case 3:
-                Debug.Log("Bango" + weapon);
-                return;
-        }
-
+        Instantiate(bulletType,transform.position,Quaternion.identity);
+        Debug.Log("Bango" + weapon);
     }
 }

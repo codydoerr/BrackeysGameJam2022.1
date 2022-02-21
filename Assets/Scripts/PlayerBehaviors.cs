@@ -7,6 +7,8 @@ public class PlayerBehaviors : MonoBehaviour
     CameraBehavior camScript;
     int currentWeapon = 0;
     [SerializeField] GameObject [] currentWeapons;
+    [SerializeField] GameObject [] holograms;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,7 +24,8 @@ public class PlayerBehaviors : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangeWeapon();
+            change
+            currentWeapon = camScript.cameraLocation;
             camScript.ChangeGunnerView();
         }
     }

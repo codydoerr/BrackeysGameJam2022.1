@@ -6,7 +6,7 @@ public class CameraBehavior : MonoBehaviour
 {
     [SerializeField] float cameraSpeed;
     [SerializeField] GameObject[] cameraLocations;
-    int cameraLocation;
+    public int cameraLocation;
     private void Start()
     {
         transform.SetParent(null);
