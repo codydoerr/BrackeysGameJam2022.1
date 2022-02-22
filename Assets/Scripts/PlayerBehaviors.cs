@@ -24,7 +24,6 @@ public class PlayerBehaviors : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            change
             currentWeapon = camScript.cameraLocation;
             camScript.ChangeGunnerView();
         }
