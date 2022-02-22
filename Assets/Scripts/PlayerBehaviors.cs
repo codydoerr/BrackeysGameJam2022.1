@@ -6,6 +6,7 @@ public class PlayerBehaviors : MonoBehaviour
 {
     CameraBehavior camScript;
     int currentWeapon = 0;
+    int currentHologram = 0;
     [SerializeField] GameObject [] currentWeapons;
     [SerializeField] GameObject [] holograms;
 
@@ -24,38 +25,13 @@ public class PlayerBehaviors : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentWeapon = camScript.cameraLocation;
             camScript.ChangeGunnerView();
+            currentWeapon = camScript.cameraLocation;
+            currentHologram = camScript.cameraLocation;
         }
     }
-    public void ChangeWeapon()
+    public GameObject GetCurrentPlayer()
     {
-        currentWeapon++;
-        currentWeapon = currentWeapon % 4;
-        /*if (press != KeyCode.Space)
-        {
-            switch (press)
-            {
-                case KeyCode.Alpha1:
-                    cameraLocation = 0;
-                    return;
-                case KeyCode.Alpha2:
-                    cameraLocation = 1;
-                    return;
-                case KeyCode.Alpha3:
-                    cameraLocation = 2;
-                    return;
-                case KeyCode.Alpha4:
-                    cameraLocation = 3;
-                    return;
-            }
-        }
-        else
-        {
-
-        }
-        */
-
+        return holograms[currentHologram];
     }
-
 }
