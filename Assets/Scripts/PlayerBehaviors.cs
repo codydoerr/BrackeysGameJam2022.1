@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerBehaviors : MonoBehaviour
 {
-    [SerializeField] int alphaChange;
+    [SerializeField] float alphaChange;
     [SerializeField] GameObject [] currentWeapons;
     [SerializeField] GameObject [] holograms;
+    [SerializeField] GameObject[] hologramSprites;
     public int currentPlayer;
     Vector2 direction;
     [SerializeField] float speed;
@@ -22,6 +23,7 @@ public class PlayerBehaviors : MonoBehaviour
     private void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        ChangeGunnerView();
     }
     // Update is called once per frame
     void Update()
@@ -49,11 +51,11 @@ public class PlayerBehaviors : MonoBehaviour
         {
             if (i != currentPlayer)
             {
-                holograms[currentPlayer].GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255, alphaChange);
+                hologramSprites[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,alphaChange);
             }
             else
             {
-                holograms[currentPlayer].GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                hologramSprites[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
             }
         }
 
