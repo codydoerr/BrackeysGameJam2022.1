@@ -19,7 +19,7 @@ public class WeaponsBehaviors : MonoBehaviour
     }
     IEnumerator WeaponFireWait(float seconds)
     {
-        Vector2 shootDir = transform.parent.parent.GetComponent<PlayerCombatBehavior>().GetAimPosition() - transform.position;
+        Vector2 shootDir = transform.parent.parent.GetComponent<PlayerCharacter>().GetAimPosition() - transform.position;
         float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg - 90f;
         Projectile bul = Instantiate(bulletType, transform.position,Quaternion.Euler(0,0,angle)).GetComponent<Projectile>();
         bul.myOwner = gameObject.transform.parent.gameObject;//<3
