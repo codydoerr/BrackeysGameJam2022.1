@@ -11330,7 +11330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: alphaChange
-      value: 0.45
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: hologramSprites.Array.size
