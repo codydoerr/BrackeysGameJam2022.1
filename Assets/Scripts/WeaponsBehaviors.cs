@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class WeaponsBehaviors : MonoBehaviour
 {
+    bool canFire = true;
+    [SerializeField] float fireWait;
     [SerializeField] GameObject bulletType;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void FireWeapon(int weapon)
     {
-        Instantiate(bulletType,transform.position,Quaternion.identity);
-        Debug.Log("Bango" + weapon);
+        if(canFire)
+        {
+            StartCoroutine(WeaponFireWait(fireWait));
+            Debug.Log("Bango" + weapon);
+        }
+
+    }
+    IEnumerator WeaponFireWait(float seconds)
+    {
+
+        Instantiate(bulletType, transform.position, Quaternion.identity);
+        canFire = false;
+        yield return new WaitForSeconds(seconds);
+        canFire = true;
+
     }
 }
