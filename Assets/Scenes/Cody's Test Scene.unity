@@ -11324,6 +11324,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92902129506473394, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 92902129506473397, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: bulletDeathWait
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: rocketBulletSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: chakramBulletSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: laserGunBulletSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: machineGunBulletSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: holograms.Array.data[0]
       value: 
@@ -11340,6 +11368,26 @@ PrefabInstance:
       propertyPath: holograms.Array.data[3]
       value: 
       objectReference: {fileID: 8302069200266564169}
+    - target: {fileID: 3030753733789764448, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957838282228762198, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421349942853494149, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421349942853494150, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677228188691019549, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7498730027010418792, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11387,6 +11435,10 @@ PrefabInstance:
     - target: {fileID: 7498730027010418807, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798415226513126768, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
