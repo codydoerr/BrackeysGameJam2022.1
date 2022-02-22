@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombatBehavior : MonoBehaviour
+public class PlayerCharacter : MonoBehaviour
 {
     float mouseX;
     float mouseY;
@@ -10,6 +10,10 @@ public class PlayerCombatBehavior : MonoBehaviour
     Vector3 aimPosition;
 
     [SerializeField] CameraBehavior camScript;
+
+    public SpriteRenderer sprite;
+    public Collider2D col;
+
     void FixedUpdate()
     {
         aimPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

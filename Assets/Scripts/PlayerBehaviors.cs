@@ -6,9 +6,8 @@ public class PlayerBehaviors : MonoBehaviour
 {
     [SerializeField] float alphaChange;
     [SerializeField] GameObject [] currentWeapons;
-    [SerializeField] GameObject [] holograms;
-    [SerializeField] GameObject[] hologramSprites;
-    public int currentPlayer;
+    [SerializeField] PlayerCharacter [] characters;
+    public int currentCharacter;
     Vector2 direction;
     [SerializeField] float speed;
     float Xinput;
@@ -32,7 +31,7 @@ public class PlayerBehaviors : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            currentWeapons[currentPlayer].GetComponent<WeaponsBehaviors>().FireWeapon(currentPlayer);
+            currentWeapons[currentCharacter].GetComponent<WeaponsBehaviors>().FireWeapon(currentCharacter);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -45,17 +44,19 @@ public class PlayerBehaviors : MonoBehaviour
     }
     public void ChangeGunnerView()
     {
-        currentPlayer++;
-        currentPlayer = currentPlayer % 4;
-        for (int i = 0; i < 4; i++)
+        currentCharacter++;
+        currentCharacter = currentCharacter % 4;
+        for (int i = 0; i < characters.Length; i++)
         {
-            if (i != currentPlayer)
+            if (i != currentCharacter)
             {
-                hologramSprites[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,alphaChange);
+                characters[i].sprite.color = new Color(1,1,1,alphaChange);
+                characters[i].col.enabled = false;
             }
             else
             {
-                hologramSprites[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+                characters[i].sprite.color = new Color(1,1,1,1);
+                characters[i].col.enabled = true;
             }
         }
 
@@ -97,9 +98,5 @@ public class PlayerBehaviors : MonoBehaviour
             }
             playerRB.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
         
-    }
-    public GameObject GetCurrentPlayer()
-    {
-        return holograms[currentPlayer];
     }
 }
