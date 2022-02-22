@@ -8,7 +8,6 @@ public class PlayerCombatBehavior : MonoBehaviour
     float mouseY;
     float mousePosition;
     Vector3 aimPosition;
-    int currentWeapon;
 
     [SerializeField] CameraBehavior camScript;
     void FixedUpdate()
