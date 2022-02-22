@@ -4,30 +4,102 @@ using UnityEngine;
 
 public class PlayerBehaviors : MonoBehaviour
 {
-    CameraBehavior camScript;
+    [SerializeField] float alphaChange;
     [SerializeField] GameObject [] currentWeapons;
     [SerializeField] GameObject [] holograms;
+    [SerializeField] GameObject[] hologramSprites;
+    public int currentPlayer;
+    Vector2 direction;
+    [SerializeField] float speed;
+    float Xinput;
+    float Yinput;
+    Rigidbody2D playerRB;
 
     // Start is called before the first frame update
     void Awake()
     {
-        camScript = Camera.main.GetComponent<CameraBehavior>();
-    }
 
+    }
+    private void Start()
+    {
+        playerRB = GetComponent<Rigidbody2D>();
+        ChangeGunnerView();
+    }
     // Update is called once per frame
     void Update()
     {
+
+
         if (Input.GetMouseButton(0))
         {
-            currentWeapons[camScript.cameraLocation].GetComponent<WeaponsBehaviors>().FireWeapon(camScript.cameraLocation);
+            currentWeapons[currentPlayer].GetComponent<WeaponsBehaviors>().FireWeapon(currentPlayer);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            camScript.ChangeGunnerView();
+            ChangeGunnerView();
         }
+    }
+    private void FixedUpdate()
+    {
+        Movement();
+    }
+    public void ChangeGunnerView()
+    {
+        currentPlayer++;
+        currentPlayer = currentPlayer % 4;
+        for (int i = 0; i < 4; i++)
+        {
+            if (i != currentPlayer)
+            {
+                hologramSprites[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,alphaChange);
+            }
+            else
+            {
+                hologramSprites[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+            }
+        }
+
+        /*if (press != KeyCode.Space)
+        {
+            switch (press)
+            {
+                case KeyCode.Alpha1:
+                    cameraLocation = 0;
+                    return;
+                case KeyCode.Alpha2:
+                    cameraLocation = 1;
+                    return;
+                case KeyCode.Alpha3:
+                    cameraLocation = 2;
+                    return;
+                case KeyCode.Alpha4:
+                    cameraLocation = 3;
+                    return;
+            }
+        }
+        else
+        {
+
+        }
+        */
+
+    }
+    void Movement()
+    {
+            Xinput = Input.GetAxis("Horizontal");
+            Yinput = Input.GetAxis("Vertical");
+
+            direction = new Vector2(Xinput, Yinput);
+
+            if (direction.magnitude > 1)
+            {
+                direction.Normalize();
+            }
+            playerRB.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
+        
     }
     public GameObject GetCurrentPlayer()
     {
-        return holograms[camScript.cameraLocation];
+        return holograms[currentPlayer];
     }
 }

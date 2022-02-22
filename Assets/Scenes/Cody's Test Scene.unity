@@ -11324,69 +11324,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 92902129506473394, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 92902129506473397, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: bulletDeathWait
-      value: 3
+      propertyPath: alphaChange
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: rocketBulletSpeed
-      value: 5
+      propertyPath: hologramSprites.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: chakramBulletSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: laserGunBulletSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: machineGunBulletSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: holograms.Array.data[0]
+      propertyPath: hologramSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 8208415495169300197}
+      objectReference: {fileID: 3118016549331975060}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: holograms.Array.data[1]
+      propertyPath: hologramSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 4909300742499900796}
+      objectReference: {fileID: 5010195593546888868}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: holograms.Array.data[2]
+      propertyPath: hologramSprites.Array.data[2]
       value: 
-      objectReference: {fileID: 4477806819280479150}
+      objectReference: {fileID: 6764488375646144489}
     - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: holograms.Array.data[3]
+      propertyPath: hologramSprites.Array.data[3]
       value: 
-      objectReference: {fileID: 8302069200266564169}
-    - target: {fileID: 3030753733789764448, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957838282228762198, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5421349942853494149, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+      objectReference: {fileID: 5365630977745818994}
+    - target: {fileID: 3030753733789764451, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: m_Color.a
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5421349942853494150, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677228188691019549, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7498730027010418792, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: m_Name
@@ -11436,29 +11404,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8798415226513126768, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4491260847230904223, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+    - {fileID: 7086559764321959529, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+    - {fileID: 1186204582857394493, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+    - {fileID: 6005634583829512301, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
---- !u!1 &4477806819280479150 stripped
+--- !u!1 &3118016549331975060 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4570679102629614427, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3030753733789764449, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
   m_PrefabInstance: {fileID: 92902129076990197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4909300742499900796 stripped
+--- !u!1 &5010195593546888868 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5002191854985702793, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4957838282228762193, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
   m_PrefabInstance: {fileID: 92902129076990197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8208415495169300197 stripped
+--- !u!1 &5365630977745818994 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8115534467283691024, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5421349942853494151, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
   m_PrefabInstance: {fileID: 92902129076990197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8302069200266564169 stripped
+--- !u!1 &6764488375646144489 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8249699570915435196, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6677228188691019548, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
   m_PrefabInstance: {fileID: 92902129076990197}
   m_PrefabAsset: {fileID: 0}

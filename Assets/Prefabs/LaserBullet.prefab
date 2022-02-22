@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5462439573861913138}
   - component: {fileID: 4948066336858694003}
-  - component: {fileID: -729161856720226467}
+  - component: {fileID: 3121737612017163962}
   m_Layer: 0
   m_Name: LaserBullet
   m_TagString: Untagged
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 714580263
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.23137257, g: 0.6901961, b: 0.23137257, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a322eb19eadf5bd4a9100901689f346f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-729161856720226467
+--- !u!114 &3121737612017163962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,6 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2015111843198450788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a0fb1c6873db4438b4e3c89eb25276, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb9646835fcffc48a0a33cae15ad980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 0
+  bulletDeathWait: 1
+  bloom: 0
+  myOwner: {fileID: 0}
