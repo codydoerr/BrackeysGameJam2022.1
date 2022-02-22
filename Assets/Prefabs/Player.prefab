@@ -218,7 +218,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: be0f819bc9e808f47a3c315bc2e8b971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -331,10 +331,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3797906550747213635}
   - component: {fileID: 6821902524987980886}
-  - component: {fileID: 92902130864273001}
+  - component: {fileID: 9143574987269210798}
   m_Layer: 0
   m_Name: MachineGunPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +380,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &92902130864273001
+--- !u!114 &9143574987269210798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -389,10 +389,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4570679102629614427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ddadf5539bef24b90d8979802e94ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
+  sprite: {fileID: 6677228188691019546}
+  col: {fileID: 6821902524987980886}
 --- !u!1 &4957838282228762193
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +465,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 87df7d91ca89e3b4fb256810dab3060b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -486,10 +488,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9065493565548290153}
   - component: {fileID: 7399195136363130999}
-  - component: {fileID: 92902130565610398}
+  - component: {fileID: 5417850453211374643}
   m_Layer: 0
   m_Name: LaserRiflePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +537,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &92902130565610398
+--- !u!114 &5417850453211374643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,10 +546,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5002191854985702793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ddadf5539bef24b90d8979802e94ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
+  sprite: {fileID: 4957838282228762199}
+  col: {fileID: 7399195136363130999}
 --- !u!1 &5421349942853494151
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +622,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d16a41b170c655b4eb4d12418cd05a61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -701,7 +705,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5235295e083451744ba75d3b6bd1f197, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -757,7 +761,7 @@ GameObject:
   - component: {fileID: 92902130355339466}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,17 +828,12 @@ MonoBehaviour:
   - {fileID: 619805139736000786}
   - {fileID: 3719156041138289391}
   - {fileID: 8798415226513126768}
-  holograms:
-  - {fileID: 8115534467283691024}
-  - {fileID: 5002191854985702793}
-  - {fileID: 4570679102629614427}
-  - {fileID: 8249699570915435196}
-  hologramSprites:
-  - {fileID: 3030753733789764449}
-  - {fileID: 4957838282228762193}
-  - {fileID: 6677228188691019548}
-  - {fileID: 5421349942853494151}
-  currentPlayer: 0
+  characters:
+  - {fileID: 7452338081838414129}
+  - {fileID: 5417850453211374643}
+  - {fileID: 9143574987269210798}
+  - {fileID: 1367291589323850606}
+  currentCharacter: 0
   speed: 7
 --- !u!1 &7498730027189060749
 GameObject:
@@ -936,10 +935,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5212437310756195401}
   - component: {fileID: 1285043335128525988}
-  - component: {fileID: 92902129128449308}
+  - component: {fileID: 7452338081838414129}
   m_Layer: 0
   m_Name: ChakramPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -985,7 +984,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &92902129128449308
+--- !u!114 &7452338081838414129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -994,10 +993,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8115534467283691024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ddadf5539bef24b90d8979802e94ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
+  sprite: {fileID: 3030753733789764451}
+  col: {fileID: 1285043335128525988}
 --- !u!1 &8249699570915435196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,10 +1009,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8024102042674765753}
   - component: {fileID: 3442381382950688735}
-  - component: {fileID: 92902130864851036}
+  - component: {fileID: 1367291589323850606}
   m_Layer: 0
   m_Name: RocketPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1057,7 +1058,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &92902130864851036
+--- !u!114 &1367291589323850606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1066,10 +1067,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8249699570915435196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ddadf5539bef24b90d8979802e94ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
+  sprite: {fileID: 5421349942853494149}
+  col: {fileID: 3442381382950688735}
 --- !u!1 &8798415226513126768
 GameObject:
   m_ObjectHideFlags: 0
