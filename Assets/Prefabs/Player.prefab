@@ -102,7 +102,7 @@ MonoBehaviour:
   - {fileID: 7498730027750043809}
   - {fileID: 7498730026885506248}
   - {fileID: 7498730027615408652}
-  cameraLocation: 0
+  playerBeh: {fileID: 0}
 --- !u!1 &619805139736000786
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3030753733789764449}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2341812580141255844}
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48bf6e5a968810408512c6b9cfc1878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireWait: 0.085
+  fireWait: 0.2
   bulletType: {fileID: 3539943915908971290, guid: d2a8d988a07eaed43b055a8188567f37, type: 3}
 --- !u!1 &4263538052538698766
 GameObject:
@@ -574,7 +574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4957838282228762193}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4253177586880258513}
@@ -729,7 +729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5421349942853494151}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2888397708045918011}
@@ -812,7 +812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677228188691019548}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8948436911530086691}
@@ -910,7 +910,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7498730027010418807}
   - component: {fileID: 92902129506473394}
-  - component: {fileID: 92902129506473397}
   - component: {fileID: 92902130355339466}
   m_Layer: 0
   m_Name: Player
@@ -962,20 +961,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &92902129506473397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498730027010418792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386d4242bc56aa74a99d8fa75a6068d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
+  m_Constraints: 4
 --- !u!114 &92902130355339466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,16 +974,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6921c990dac5ce468ae4842ab7b33b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alphaChange: 65
   currentWeapons:
   - {fileID: 4263538052538698766}
   - {fileID: 619805139736000786}
   - {fileID: 3719156041138289391}
   - {fileID: 8798415226513126768}
   holograms:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8115534467283691024}
+  - {fileID: 5002191854985702793}
+  - {fileID: 4570679102629614427}
+  - {fileID: 8249699570915435196}
+  currentPlayer: 0
+  speed: 0
 --- !u!1 &7498730027189060749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1087,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5212437310756195401}
   - component: {fileID: 1285043335128525988}
-  - component: {fileID: 3558901169266011970}
   - component: {fileID: 92902129128449308}
   m_Layer: 0
   m_Name: ChakramPlayer
@@ -1148,18 +1136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3558901169266011970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8115534467283691024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6fdbb8e72be7e4e8758d64bced11dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &92902129128449308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,5 +1316,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48bf6e5a968810408512c6b9cfc1878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireWait: 3
+  fireWait: 1.5
   bulletType: {fileID: 1692641384561528638, guid: a3bc4d927d26886409f27c2b8d6ef23a, type: 3}

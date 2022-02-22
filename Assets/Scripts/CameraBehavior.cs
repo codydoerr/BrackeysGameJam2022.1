@@ -6,43 +6,15 @@ public class CameraBehavior : MonoBehaviour
 {
     [SerializeField] float cameraSpeed;
     [SerializeField] GameObject[] cameraLocations;
-    public int cameraLocation;
+    [SerializeField] PlayerBehaviors playerBeh;
     private void Start()
     {
+        playerBeh = transform.parent.GetComponent<PlayerBehaviors>();
         transform.SetParent(null);
+
     }
     void LateUpdate()
     {
-        transform.position = Vector2.Lerp(new Vector3(transform.position.x, transform.position.y,10),new Vector3(cameraLocations[cameraLocation].transform.position.x, cameraLocations[cameraLocation].transform.position.y,10), cameraSpeed * Time.deltaTime);
-    }
-    
-    public void ChangeGunnerView()
-    {
-        cameraLocation++;
-        cameraLocation = cameraLocation % 4;
-        /*if (press != KeyCode.Space)
-        {
-            switch (press)
-            {
-                case KeyCode.Alpha1:
-                    cameraLocation = 0;
-                    return;
-                case KeyCode.Alpha2:
-                    cameraLocation = 1;
-                    return;
-                case KeyCode.Alpha3:
-                    cameraLocation = 2;
-                    return;
-                case KeyCode.Alpha4:
-                    cameraLocation = 3;
-                    return;
-            }
-        }
-        else
-        {
-
-        }
-        */
-
+        transform.position = Vector2.Lerp(new Vector3(transform.position.x, transform.position.y,10),new Vector3(cameraLocations[playerBeh.currentPlayer].transform.position.x, cameraLocations[playerBeh.currentPlayer].transform.position.y,10), cameraSpeed * Time.deltaTime);
     }
 }
