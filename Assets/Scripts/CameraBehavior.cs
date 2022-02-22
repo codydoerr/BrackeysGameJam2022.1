@@ -11,7 +11,7 @@ public class CameraBehavior : MonoBehaviour
     {
         transform.SetParent(null);
     }
-    void Update()
+    void LateUpdate()
     {
         transform.position = Vector2.Lerp(new Vector3(transform.position.x, transform.position.y,10),new Vector3(cameraLocations[cameraLocation].transform.position.x, cameraLocations[cameraLocation].transform.position.y,10), cameraSpeed * Time.deltaTime);
     }
