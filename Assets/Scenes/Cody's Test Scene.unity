@@ -13342,10 +13342,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 92902130355339466, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
-      propertyPath: switchTimeWait
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7498730027010418792, guid: 29322d8978a8f2f4d905f42854283154, type: 3}
       propertyPath: m_Name
       value: Player
