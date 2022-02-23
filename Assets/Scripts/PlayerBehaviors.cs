@@ -7,12 +7,15 @@ public class PlayerBehaviors : MonoBehaviour
     [SerializeField] float alphaChange;
     [SerializeField] GameObject [] currentWeapons;
     [SerializeField] PlayerCharacter [] characters;
+    [SerializeField] Color[] characterColors;
+    [SerializeField] GameObject selectionCircle;
     public int currentCharacter;
     Vector2 direction;
     [SerializeField] float speed;
     float Xinput;
     float Yinput;
     Rigidbody2D playerRB;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -57,6 +60,8 @@ public class PlayerBehaviors : MonoBehaviour
             {
                 characters[i].sprite.color = new Color(1,1,1,1);
                 characters[i].col.enabled = true;
+                selectionCircle.transform.SetPositionAndRotation(characters[i].transform.position, Quaternion.identity);
+                selectionCircle.GetComponent<SpriteRenderer>().color = new Color(characterColors[i].r, characterColors[i].g, characterColors[i].b,1);
             }
         }
 
