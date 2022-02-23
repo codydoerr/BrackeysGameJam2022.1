@@ -21,7 +21,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
     }
     IEnumerator deathWait(float seconds)
