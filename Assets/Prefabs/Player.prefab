@@ -902,6 +902,7 @@ MonoBehaviour:
   - {r: 0.40000004, g: 0.6, b: 0.8000001, a: 0}
   - {r: 0.8000001, g: 0.40000004, b: 0.73333335, a: 0}
   selectionCircle: {fileID: 919689885}
+  switchTimeWait: 0.5
   currentCharacter: 0
   speed: 7
 --- !u!1 &7498730027189060749
