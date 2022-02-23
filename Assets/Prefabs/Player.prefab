@@ -412,8 +412,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3797906550747213635}
-  - component: {fileID: 6821902524987980886}
   - component: {fileID: 9143574987269210798}
+  - component: {fileID: 354559466}
   m_Layer: 0
   m_Name: MachineGunPlayer
   m_TagString: Player
@@ -436,32 +436,6 @@ Transform:
   m_Father: {fileID: 7498730027010418807}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6821902524987980886
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570679102629614427}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &9143574987269210798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +450,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
   sprite: {fileID: 6677228188691019546}
-  col: {fileID: 6821902524987980886}
+  col: {fileID: 354559466}
+--- !u!58 &354559466
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570679102629614427}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.254
 --- !u!1 &4957838282228762193
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,8 +559,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9065493565548290153}
-  - component: {fileID: 7399195136363130999}
   - component: {fileID: 5417850453211374643}
+  - component: {fileID: 628195405}
   m_Layer: 0
   m_Name: LaserRiflePlayer
   m_TagString: Player
@@ -593,32 +583,6 @@ Transform:
   m_Father: {fileID: 7498730027010418807}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7399195136363130999
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5002191854985702793}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &5417850453211374643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +597,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
   sprite: {fileID: 4957838282228762199}
-  col: {fileID: 7399195136363130999}
+  col: {fileID: 628195405}
+--- !u!58 &628195405
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002191854985702793}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.254
 --- !u!1 &5421349942853494151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,8 +1003,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5212437310756195401}
-  - component: {fileID: 1285043335128525988}
   - component: {fileID: 7452338081838414129}
+  - component: {fileID: 202936839}
   m_Layer: 0
   m_Name: ChakramPlayer
   m_TagString: Player
@@ -1047,32 +1027,6 @@ Transform:
   m_Father: {fileID: 7498730027010418807}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1285043335128525988
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8115534467283691024}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &7452338081838414129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1041,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
   sprite: {fileID: 3030753733789764451}
-  col: {fileID: 1285043335128525988}
+  col: {fileID: 202936839}
+--- !u!58 &202936839
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115534467283691024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.254
 --- !u!1 &8249699570915435196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,8 +1067,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8024102042674765753}
-  - component: {fileID: 3442381382950688735}
   - component: {fileID: 1367291589323850606}
+  - component: {fileID: 70552301}
   m_Layer: 0
   m_Name: RocketPlayer
   m_TagString: Player
@@ -1121,32 +1091,6 @@ Transform:
   m_Father: {fileID: 7498730027010418807}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3442381382950688735
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8249699570915435196}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &1367291589323850606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,7 +1105,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camScript: {fileID: 0}
   sprite: {fileID: 5421349942853494149}
-  col: {fileID: 3442381382950688735}
+  col: {fileID: 70552301}
+--- !u!58 &70552301
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249699570915435196}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.254
 --- !u!1 &8798415226513126768
 GameObject:
   m_ObjectHideFlags: 0
