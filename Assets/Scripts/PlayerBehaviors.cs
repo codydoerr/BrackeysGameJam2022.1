@@ -9,6 +9,8 @@ public class PlayerBehaviors : MonoBehaviour
     [SerializeField] PlayerCharacter [] characters;
     [SerializeField] Color[] characterColors;
     [SerializeField] GameObject selectionCircle;
+    [SerializeField] float switchTimeWait;
+    bool canSwitch = true;
     public int currentCharacter;
     Vector2 direction;
     [SerializeField] float speed;
@@ -36,9 +38,9 @@ public class PlayerBehaviors : MonoBehaviour
         {
             currentWeapons[currentCharacter].GetComponent<WeaponsBehaviors>().FireWeapon(currentCharacter);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canSwitch)
         {
-            ChangeGunnerView();
+            StartCoroutine(SwitchTimer(switchTimeWait));
         }
     }
     private void FixedUpdate()
@@ -90,6 +92,18 @@ public class PlayerBehaviors : MonoBehaviour
         */
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    { 
+        ChangeGunnerView();
+    }
+    IEnumerator SwitchTimer(float seconds)
+    {
+        canSwitch = false;
+        ChangeGunnerView();
+        yield return new WaitForSeconds(seconds);
+        canSwitch = true;
+    }
+
     void Movement()
     {
             Xinput = Input.GetAxis("Horizontal");
