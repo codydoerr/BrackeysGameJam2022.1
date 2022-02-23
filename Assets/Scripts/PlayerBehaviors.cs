@@ -10,6 +10,7 @@ public class PlayerBehaviors : MonoBehaviour
     [SerializeField] Color[] characterColors;
     [SerializeField] GameObject selectionCircle;
     [SerializeField] float switchTimeWait;
+    bool changingView = false;
     bool canSwitch = true;
     public int currentCharacter;
     Vector2 direction;
@@ -26,8 +27,10 @@ public class PlayerBehaviors : MonoBehaviour
     }
     private void Start()
     {
+        changingView = false;
         playerRB = GetComponent<Rigidbody2D>();
         ChangeGunnerView();
+
     }
     // Update is called once per frame
     void Update()
@@ -40,6 +43,7 @@ public class PlayerBehaviors : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && canSwitch)
         {
+            changingView = true;
             StartCoroutine(SwitchTimer(switchTimeWait));
         }
     }
@@ -93,15 +97,20 @@ public class PlayerBehaviors : MonoBehaviour
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
-    { 
-        ChangeGunnerView();
+    {
+        //Layer 10 is the Walls Layer
+        if (changingView && (collision.gameObject.layer == 10)) {
+            ChangeGunnerView();
+
+        }
     }
     IEnumerator SwitchTimer(float seconds)
     {
         canSwitch = false;
         ChangeGunnerView();
-        yield return new WaitForSeconds(seconds);
         canSwitch = true;
+        yield return new WaitForSeconds(seconds);
+        changingView = false;
     }
 
     void Movement()
