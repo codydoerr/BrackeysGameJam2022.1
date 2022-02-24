@@ -12,17 +12,21 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Attacking")]
     public float reloadTime;
+    public GameObject projectile;
+    public GameObject bulletSpawn;
 
     private PlayerBehaviors player;
     private GameObject currentCharacter;
     private bool awake;
     private Rigidbody2D rb;
-    bool strafeRight;
+    private bool strafeRight;
     private Vector2 lastPlayerPos;
+    private bool canAttack;
 
     private void Start()
     {
         awake = true;
+        canAttack = true;
         player = FindObjectOfType<PlayerBehaviors>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -36,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     {
         currentCharacter = player.characters[player.currentCharacter].gameObject;
 
-        if(awake && canSeePlayer())
+        if(awake && CanSeePlayer())
         {
             lastPlayerPos = currentCharacter.transform.position;
             transform.up = currentCharacter.transform.position - transform.position;
@@ -58,6 +62,9 @@ public class EnemyAI : MonoBehaviour
                 direction.Normalize();
 
             rb.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
+
+            if (canAttack)
+                StartCoroutine(Shoot());
         }
         else if (awake)
         {
@@ -72,7 +79,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private bool canSeePlayer()
+    private bool CanSeePlayer()
     {
         int layerMask = (LayerMask.GetMask("Player")) | (LayerMask.GetMask("Walls"));
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (currentCharacter.transform.position - transform.position).normalized * visionRange, visionRange, layerMask);
@@ -83,5 +90,13 @@ public class EnemyAI : MonoBehaviour
         }
 
         return false;
+    }
+
+    private IEnumerator Shoot()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(reloadTime);
+        Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+        canAttack = true;
     }
 }
