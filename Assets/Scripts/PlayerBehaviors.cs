@@ -6,7 +6,7 @@ public class PlayerBehaviors : MonoBehaviour
 {
     [SerializeField] float alphaChange;
     [SerializeField] GameObject [] currentWeapons;
-    [SerializeField] PlayerCharacter [] characters;
+    public PlayerCharacter [] characters;
     [SerializeField] Color[] characterColors;
     [SerializeField] GameObject selectionCircle;
     [SerializeField] float switchTimeWait;
