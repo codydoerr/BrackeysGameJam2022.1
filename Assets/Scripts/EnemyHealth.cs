@@ -22,4 +22,9 @@ public class EnemyHealth : MonoBehaviour
             currentSheild--;
         }
     }
+
+    private Color GetSheildColor()
+    {
+        return new Color (1,1,1,1);
+    }
 }
