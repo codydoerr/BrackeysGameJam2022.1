@@ -6,12 +6,11 @@ public class PlayerBehaviors : MonoBehaviour
 {
     [SerializeField] float alphaChange;
     [SerializeField] GameObject [] currentWeapons;
-    [SerializeField] PlayerCharacter [] characters;
+    public PlayerCharacter [] characters;
     [SerializeField] Color[] characterColors;
     [SerializeField] GameObject selectionCircle;
     [SerializeField] float switchTimeWait;
     [SerializeField] WallsDetection[] detectionWalls;
-    [SerializeField] float[] distances;
     int closestCharacter;
     float distance;
     bool changingView = false;
@@ -56,21 +55,15 @@ public class PlayerBehaviors : MonoBehaviour
     }
     private int FindClosestCharacter()
     {
-
         int closestCharacter = 0;
-        Debug.Log(distance);
-        for(int i = 0;i<4;i++)
+        float closestDistance = 20;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        for(int i = 0; i < characters.Length; i++)
         {
-            float tempDistance = Vector3.Distance(characters[i].gameObject.transform.position, characters[i].GetAimPosition());
-            distances[i] = tempDistance;
-            //Debug.Log(tempDistance);
-        }
-        for(int j = 0; j < 4;j++)
-        {
-            float closestDistance = currentCharacter;
-            if (closestDistance > distances[j])
+            if(Vector2.Distance((Vector2)characters[i].transform.position, mousePosition) < closestDistance)
             {
-                closestCharacter = j;
+                closestCharacter = i;
+                closestDistance = Vector2.Distance((Vector2)characters[i].transform.position, mousePosition);
             }
         }
         return closestCharacter;
