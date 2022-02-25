@@ -10,6 +10,10 @@ public class PlayerBehaviors : MonoBehaviour
     [SerializeField] Color[] characterColors;
     [SerializeField] GameObject selectionCircle;
     [SerializeField] float switchTimeWait;
+    [SerializeField] WallsDetection[] detectionWalls;
+    [SerializeField] float[] distances;
+    int closestCharacter;
+    float distance;
     bool changingView = false;
     bool canSwitch = true;
     public int currentCharacter;
@@ -29,14 +33,13 @@ public class PlayerBehaviors : MonoBehaviour
     {
         changingView = false;
         playerRB = GetComponent<Rigidbody2D>();
-        ChangeGunnerView();
+        ChangeGunnerView(closestCharacter);
 
     }
     // Update is called once per frame
     void Update()
     {
-
-
+        closestCharacter = FindClosestCharacter();
         if (Input.GetMouseButton(0))
         {
             currentWeapons[currentCharacter].GetComponent<WeaponsBehaviors>().FireWeapon(currentCharacter);
@@ -51,10 +54,30 @@ public class PlayerBehaviors : MonoBehaviour
     {
         Movement();
     }
-    public void ChangeGunnerView()
+    private int FindClosestCharacter()
     {
-        currentCharacter++;
-        currentCharacter = currentCharacter % 4;
+
+        int closestCharacter = 0;
+        Debug.Log(distance);
+        for(int i = 0;i<4;i++)
+        {
+            float tempDistance = Vector3.Distance(characters[i].gameObject.transform.position, characters[i].GetAimPosition());
+            distances[i] = tempDistance;
+            //Debug.Log(tempDistance);
+        }
+        for(int j = 0; j < 4;j++)
+        {
+            float closestDistance = currentCharacter;
+            if (closestDistance > distances[j])
+            {
+                closestCharacter = j;
+            }
+        }
+        return closestCharacter;
+    }
+    public void ChangeGunnerView(int newGunner)
+    {
+        currentCharacter = newGunner;
         for (int i = 0; i < characters.Length; i++)
         {
             if (i != currentCharacter)
@@ -96,18 +119,10 @@ public class PlayerBehaviors : MonoBehaviour
         */
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Layer 10 is the Walls Layer
-        if (changingView && (collision.gameObject.layer == 10)) {
-            ChangeGunnerView();
-
-        }
-    }
     IEnumerator SwitchTimer(float seconds)
     {
         canSwitch = false;
-        ChangeGunnerView();
+        ChangeGunnerView(closestCharacter);
         canSwitch = true;
         yield return new WaitForSeconds(seconds);
         changingView = false;
