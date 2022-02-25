@@ -97,5 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 7
   bulletDeathWait: 3
-  bloom: 25
+  bloom: 0
   myOwner: {fileID: 0}

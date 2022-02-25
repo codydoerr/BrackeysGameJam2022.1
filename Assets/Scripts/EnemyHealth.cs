@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public enum sheildTypes { Orange, Green, Blue, Pink};
+    public enum shieldTypes { Orange, Green, Blue, Pink};
 
-    public SpriteRenderer sheild;
-    public sheildTypes[] sheilds;
+    public SpriteRenderer shield;
+    public shieldTypes[] shields;
     int currentSheild;
 
     private void Start()
     {
-        currentSheild = sheilds.Length - 1;
+        currentSheild = shields.Length - 1;
     }
 
-    public void TakeDamage(sheildTypes damageType)
+    public void TakeDamage(shieldTypes damageType)
     {
-        if(sheilds[currentSheild] == damageType)
+        if(shields[currentSheild] == damageType)
         {
             currentSheild--;
         }
