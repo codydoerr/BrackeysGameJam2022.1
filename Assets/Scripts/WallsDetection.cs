@@ -1,10 +1,10 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WallsDetection : MonoBehaviour
 {
-    bool isWall;
+    int isWall;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +18,16 @@ public class WallsDetection : MonoBehaviour
     }
     public bool IsWallThere()
     {
-        return isWall;
+        return isWall>0;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isWall = true;
+        isWall++;
         Debug.Log(isWall);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isWall = false;
+        isWall--;
         Debug.Log(isWall);
     }
 }
