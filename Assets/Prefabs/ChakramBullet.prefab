@@ -97,10 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb9646835fcffc48a0a33cae15ad980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 4
+  bulletSpeed: 10
   bulletDeathWait: 10
+  bulletPersistTime: 0
   bloom: 0
-  bulletSpeedDampening: 4
+  bulletSpeedDampening: 10
+  damageType: 0
   myOwner: {fileID: 0}
 --- !u!70 &-7680200783656294754
 CapsuleCollider2D:

@@ -22,7 +22,7 @@ public class WeaponsBehaviors : MonoBehaviour
         Vector2 shootDir = transform.parent.parent.GetComponent<PlayerCharacter>().GetAimPosition() - transform.position;
         float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg - 90f;
         Projectile bul = Instantiate(bulletType, transform.position,Quaternion.Euler(0,0,angle)).GetComponent<Projectile>();
-        bul.myOwner = gameObject.transform.parent.gameObject;//<3
+        bul.myOwner = gameObject.transform.parent.parent.gameObject;//<3
         canFire = false;
         yield return new WaitForSeconds(seconds);
         canFire = true;

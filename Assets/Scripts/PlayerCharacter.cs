@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
+    [SerializeField] PlayerHealth mainHealth;
     float mouseX;
     float mouseY;
     float mousePosition;
@@ -24,6 +25,14 @@ public class PlayerCharacter : MonoBehaviour
     public Vector3 GetAimPosition()
     {
         return aimPosition;
+    }
+    public void TakeDamage(float damage)
+    {
+        mainHealth.TakeDamage(damage);
+    }
+    public void HealDamage(float healAmount)
+    {
+        mainHealth.HealDamage(healAmount);
     }
 
 }

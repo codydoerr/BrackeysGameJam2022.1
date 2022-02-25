@@ -99,7 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 0
   bulletDeathWait: 1
+  bulletPersistTime: 0
   bloom: 0
+  bulletSpeedDampening: 0
+  damageType: 1
   myOwner: {fileID: 0}
 --- !u!70 &-3134508246954049718
 CapsuleCollider2D:

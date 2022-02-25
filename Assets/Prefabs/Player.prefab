@@ -689,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainHealth: {fileID: 1435462945}
   camScript: {fileID: 0}
   sprite: {fileID: 6677228188691019546}
   col: {fileID: 354559466}
@@ -837,6 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainHealth: {fileID: 1435462945}
   camScript: {fileID: 0}
   sprite: {fileID: 4957838282228762199}
   col: {fileID: 628195405}
@@ -1063,6 +1065,7 @@ GameObject:
   - component: {fileID: 7498730027010418807}
   - component: {fileID: 92902129506473394}
   - component: {fileID: 92902130355339466}
+  - component: {fileID: 1435462945}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -1152,6 +1155,21 @@ MonoBehaviour:
   - {fileID: 644127203}
   currentCharacter: 0
   speed: 7
+--- !u!114 &1435462945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498730027010418792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33883d7a9df4a93479b5695295ecded1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 20
+  invFrames: 0.5
 --- !u!1 &7498730027189060749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainHealth: {fileID: 1435462945}
   camScript: {fileID: 0}
   sprite: {fileID: 3030753733789764451}
   col: {fileID: 202936839}
@@ -1353,6 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a020ceeb09930b45849dcb0d0815f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainHealth: {fileID: 1435462945}
   camScript: {fileID: 0}
   sprite: {fileID: 5421349942853494149}
   col: {fileID: 70552301}

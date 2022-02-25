@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletDeathWait;
+    [SerializeField] float bulletPersistTime;
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
+    [SerializeField] EnemyHealth.shieldTypes damageType;
+    [SerializeField] float damageAmount;
     Rigidbody2D bulletRB;
     public GameObject myOwner;
-    bool returning;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,52 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 10 && bulletSpeedDampening == 0)
+
+        if (collision.GetComponent<EnemyHealth>() != null && collision.gameObject != myOwner)
         {
+            switch (damageType)
+            {
+                case EnemyHealth.shieldTypes.Orange:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    break;
+                case EnemyHealth.shieldTypes.Green:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    break;
+                case EnemyHealth.shieldTypes.Blue:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    DestroyBullet(bulletDeathWait);
+                    break;
+                case EnemyHealth.shieldTypes.Pink:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    DestroyBullet(bulletDeathWait);
+                    break;
+            }
+
+        }
+        else if(collision.GetComponent<PlayerCharacter>() != null && collision.gameObject != myOwner)
+        {
+            collision.GetComponent<PlayerCharacter>().TakeDamage(damageAmount);
+        }
+        else if (collision.gameObject == myOwner && damageType == EnemyHealth.shieldTypes.Orange)
+        {
+            Debug.Log(myOwner);
             DestroyBullet(0);
         }
-        else if(collision.gameObject.layer == 10)
-        {
-            bulletSpeed = 0;
+        else if(collision.gameObject.layer == 10)//layer 10 is Walls
+        { 
+
+            if(damageType != EnemyHealth.shieldTypes.Orange)
+            {
+                DestroyBullet(0);
+            }
+            else
+            {
+                if (bulletSpeed > 0)
+                {
+                    bulletSpeed = 0;
+                }
+            }
+        
         }
     }
     // Update is called once per frame
@@ -39,6 +80,10 @@ public class Projectile : MonoBehaviour
         }
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
         bulletSpeed -= bulletSpeedDampening * Time.deltaTime;
+    }
+    IEnumerator LaserDamage(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
     private void DestroyBullet(float seconds)
     {

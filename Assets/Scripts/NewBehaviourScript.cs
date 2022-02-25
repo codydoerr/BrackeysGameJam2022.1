@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitBox : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] int damageType;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +11,8 @@ public class HitBox : MonoBehaviour
     }
 
     // Update is called once per frame
-    public int DoDamage()
+    void Update()
     {
-        return damageType;
+        
     }
 }
