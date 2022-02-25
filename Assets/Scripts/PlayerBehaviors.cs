@@ -11,7 +11,6 @@ public class PlayerBehaviors : MonoBehaviour
     [SerializeField] GameObject selectionCircle;
     [SerializeField] float switchTimeWait;
     [SerializeField] WallsDetection[] detectionWalls;
-    [SerializeField] float[] distances;
     int closestCharacter;
     float distance;
     bool changingView = false;
