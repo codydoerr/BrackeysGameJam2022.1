@@ -1146,10 +1146,10 @@ MonoBehaviour:
   selectionCircle: {fileID: 919689885}
   switchTimeWait: 0.5
   detectionWalls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2006841050}
+  - {fileID: 1388594130}
+  - {fileID: 948673759}
+  - {fileID: 644127203}
   currentCharacter: 0
   speed: 7
 --- !u!1 &7498730027189060749

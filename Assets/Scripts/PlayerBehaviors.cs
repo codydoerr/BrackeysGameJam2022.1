@@ -70,20 +70,24 @@ public class PlayerBehaviors : MonoBehaviour
     }
     public void ChangeGunnerView(int newGunner)
     {
-        currentCharacter = newGunner;
-        for (int i = 0; i < characters.Length; i++)
+        if (!detectionWalls[newGunner].IsWallThere())
         {
-            if (i != currentCharacter)
+            currentCharacter = newGunner;
+
+            for (int i = 0; i < characters.Length; i++)
             {
-                characters[i].sprite.color = new Color(1,1,1,alphaChange);
-                characters[i].col.enabled = false;
-            }
-            else
-            {
-                characters[i].sprite.color = new Color(1,1,1,1);
-                characters[i].col.enabled = true;
-                selectionCircle.transform.SetPositionAndRotation(characters[i].transform.position, Quaternion.identity);
-                selectionCircle.GetComponent<SpriteRenderer>().color = new Color(characterColors[i].r, characterColors[i].g, characterColors[i].b,1);
+                if (i != currentCharacter)
+                {
+                    characters[i].sprite.color = new Color(1, 1, 1, alphaChange);
+                    characters[i].col.enabled = false;
+                }
+                else
+                {
+                    characters[i].sprite.color = new Color(1, 1, 1, 1);
+                    characters[i].col.enabled = true;
+                    selectionCircle.transform.SetPositionAndRotation(characters[i].transform.position, Quaternion.identity);
+                    selectionCircle.GetComponent<SpriteRenderer>().color = new Color(characterColors[i].r, characterColors[i].g, characterColors[i].b, 1);
+                }
             }
         }
 

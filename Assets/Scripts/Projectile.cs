@@ -17,12 +17,16 @@ public class Projectile : MonoBehaviour
         StartCoroutine(deathWait(bulletDeathWait));
         transform.Rotate(0, 0, Random.Range(-bloom, bloom));
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
     }
+    
     IEnumerator deathWait(float seconds)
     {
         yield return new WaitForSeconds(seconds);
