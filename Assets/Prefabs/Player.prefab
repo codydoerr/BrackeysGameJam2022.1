@@ -54,7 +54,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919689887}
   - component: {fileID: 919689886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SelectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -256,7 +256,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -316,7 +316,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 92902130611801693}
   - component: {fileID: 92902130611801690}
   - component: {fileID: 92902130611801695}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4253177586880258513}
   - component: {fileID: 92902129992384407}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3030753733789764448}
   - component: {fileID: 3030753733789764451}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8948436911530086691}
   - component: {fileID: 92902130328867849}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2341812580141255844}
   - component: {fileID: 92902130026496782}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 3797906550747213635}
   - component: {fileID: 9143574987269210798}
   - component: {fileID: 354559466}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MachineGunPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4957838282228762198}
   - component: {fileID: 4957838282228762199}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 9065493565548290153}
   - component: {fileID: 5417850453211374643}
   - component: {fileID: 628195405}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaserRiflePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5421349942853494150}
   - component: {fileID: 5421349942853494149}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -949,7 +949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6677228188691019549}
   - component: {fileID: 6677228188691019546}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7498730026885506263}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MachineGunLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 7498730027010418807}
   - component: {fileID: 92902129506473394}
   - component: {fileID: 92902130355339466}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7498730027189060748}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChakramLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,7 +1191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7498730027615408651}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RocketLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7498730027750043808}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaserRifleLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 5212437310756195401}
   - component: {fileID: 7452338081838414129}
   - component: {fileID: 202936839}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChakramPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 8024102042674765753}
   - component: {fileID: 1367291589323850606}
   - component: {fileID: 70552301}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RocketPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1382,7 +1382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2888397708045918011}
   - component: {fileID: 92902130170160943}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
