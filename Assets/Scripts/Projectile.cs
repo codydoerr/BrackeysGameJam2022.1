@@ -21,11 +21,12 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 10 && myOwner.transform.parent.parent.GetComponent<PlayerBehaviors>().currentCharacter != 0)
+        if(collision.gameObject.layer == 10 && bulletSpeedDampening == 0)
         {
             DestroyBullet(0);
         }
-        else {
+        else if(collision.gameObject.layer == 10)
+        {
             bulletSpeed = 0;
         }
     }
