@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bulletSpeedDampening;
     [SerializeField] EnemyHealth.shieldTypes damageType;
     [SerializeField] float damageAmount;
+    [SerializeField] GameObject objectSpawnOnDeath;
     Rigidbody2D bulletRB;
     public GameObject myOwner;
     // Start is called before the first frame update
@@ -87,6 +88,10 @@ public class Projectile : MonoBehaviour
     }
     private void DestroyBullet(float seconds)
     {
+        if(objectSpawnOnDeath != null)
+        {
+            Instantiate(objectSpawnOnDeath);
+        }
         Destroy(gameObject,seconds);
     }
 
