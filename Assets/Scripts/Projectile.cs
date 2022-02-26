@@ -49,13 +49,14 @@ public class Projectile : MonoBehaviour
     IEnumerator LaserDamage(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        if (objectSpawnOnDeath != null)
+        {
+            Instantiate(objectSpawnOnDeath, transform.position, Quaternion.identity);
+        }
     }
     private void DestroyBullet(float seconds)
     {
-        if(objectSpawnOnDeath != null)
-        {
-            Instantiate(objectSpawnOnDeath,transform.position, Quaternion.identity);
-        }
+        StartCoroutine(LaserDamage(seconds));
         Destroy(gameObject,seconds);
     }
 
