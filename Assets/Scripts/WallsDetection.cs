@@ -23,11 +23,9 @@ public class WallsDetection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isWall++;
-        Debug.Log(isWall);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         isWall--;
-        Debug.Log(isWall);
     }
 }

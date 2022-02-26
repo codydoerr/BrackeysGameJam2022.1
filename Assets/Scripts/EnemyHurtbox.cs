@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHurtbox : MonoBehaviour
+public class EnemyHurtbox : MonoBehaviour
 {
-    [SerializeField] EnemyHealth.shieldTypes damageType;
+    public int damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyHealth>() != null)
+        if (collision.GetComponent<PlayerCharacter>() != null)
         {
-            collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+            collision.GetComponent<PlayerCharacter>().TakeDamage(damage);
             if (GetComponent<Projectile>())
                 GetComponent<Projectile>().HitCharacter();
             else

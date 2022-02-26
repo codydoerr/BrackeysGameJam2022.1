@@ -9,10 +9,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bulletDeathWait;
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
-    [SerializeField] float damageAmount;
     [SerializeField] GameObject objectSpawnOnDeath;
     Rigidbody2D bulletRB;
     public GameObject myOwner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +22,8 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<PlayerCharacter>() != null && collision.gameObject != myOwner)
+        if (collision.gameObject == myOwner)
         {
-            collision.GetComponent<PlayerCharacter>().TakeDamage(damageAmount);
-        }
-        else if (collision.gameObject == myOwner)
-        {
-            Debug.Log(myOwner);
             DestroyBullet(0);
         }
         else if(collision.gameObject.layer == 10)//layer 10 is Walls
@@ -62,6 +57,11 @@ public class Projectile : MonoBehaviour
             Instantiate(objectSpawnOnDeath,transform.position, Quaternion.identity);
         }
         Destroy(gameObject,seconds);
+    }
+
+    public void HitCharacter()
+    {
+
     }
 
 }

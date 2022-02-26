@@ -104,6 +104,7 @@ MonoBehaviour:
   bloom: 15
   bulletSpeedDampening: 0
   damageAmount: 0
+  objectSpawnOnDeath: {fileID: 0}
   myOwner: {fileID: 0}
 --- !u!114 &-8069831938225778410
 MonoBehaviour:
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7336caf6308355847966ec104f65c4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  despawnsOnHit: 1
   damageType: 2
 --- !u!70 &6703160423831385550
 CapsuleCollider2D:
@@ -132,7 +134,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.09375, y: 0.21875}
+  m_Size: {x: 0.15, y: 0.21875}
   m_Direction: 0
 --- !u!50 &-3831942336343407683
 Rigidbody2D:

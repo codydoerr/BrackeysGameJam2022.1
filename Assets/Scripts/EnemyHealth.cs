@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     public SpriteRenderer shield;
     public shieldTypes[] shields;
-    int currentSheild;
+    public int currentSheild;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(shieldTypes damageType)
     {
-        if (currentSheild > 0)
+        if (currentSheild > -1)
         {
             if (shields[currentSheild] == damageType)
             {
@@ -32,12 +32,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void SetShieldColor()
     {
-        if(currentSheild > 0)
+        if (currentSheild > -1)
             shield.color = GetSheildColor();
+        else
+            shield.color = new Color(0, 0, 0, 0);
     }
 
     private Color GetSheildColor()
     {
+        Debug.Log(shieldTypes.Orange);
         if(shields[currentSheild] == shieldTypes.Orange)
             return new Color(.827f, 0.552f, 0.274f);
         else if (shields[currentSheild] == shieldTypes.Green)
