@@ -13,18 +13,38 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentSheild = shields.Length - 1;
+        SetShieldColor();
     }
 
     public void TakeDamage(shieldTypes damageType)
     {
-        if(shields[currentSheild] == damageType)
+        if (currentSheild > 0)
         {
-            currentSheild--;
+            if (shields[currentSheild] == damageType)
+            {
+                currentSheild--;
+                SetShieldColor();
+            }
         }
+        else
+            Destroy(gameObject);
+    }
+
+    private void SetShieldColor()
+    {
+        if(currentSheild > 0)
+            shield.color = GetSheildColor();
     }
 
     private Color GetSheildColor()
     {
-        return new Color (1,1,1,1);
+        if(shields[currentSheild] == shieldTypes.Orange)
+            return new Color(.827f, 0.552f, 0.274f);
+        else if (shields[currentSheild] == shieldTypes.Green)
+            return new Color(0.219f, 0.658f, 0.219f);
+        else if (shields[currentSheild] == shieldTypes.Blue)
+            return new Color(.4f, .6f, .8f);
+        else
+            return new Color(.8f, .4f, .733f);
     }
 }

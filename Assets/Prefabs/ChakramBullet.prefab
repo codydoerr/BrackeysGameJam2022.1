@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 2649102193846018660}
   - component: {fileID: 3378993342899937932}
   - component: {fileID: -493841111801018400}
+  - component: {fileID: 8876303819165991740}
   - component: {fileID: -7680200783656294754}
   - component: {fileID: 2948835347358268198}
   m_Layer: 0
@@ -230,9 +231,21 @@ MonoBehaviour:
   bulletPersistTime: 0
   bloom: 0
   bulletSpeedDampening: 10
-  damageType: 0
   damageAmount: 0
   myOwner: {fileID: 0}
+--- !u!114 &8876303819165991740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769692529768600951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7336caf6308355847966ec104f65c4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 0
 --- !u!70 &-7680200783656294754
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
