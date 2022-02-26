@@ -96,7 +96,8 @@ public class EnemyAI : MonoBehaviour
     {
         canAttack = false;
         yield return new WaitForSeconds(reloadTime);
-        Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+        Projectile bul = Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation).GetComponent<Projectile>();
+        bul.myOwner = gameObject;
         canAttack = true;
     }
 }

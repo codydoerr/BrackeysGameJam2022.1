@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7646462510661366286}
   - component: {fileID: 7646462510661366283}
   m_Layer: 9
-  m_Name: Machine Gun Enemy
+  m_Name: Chakram Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
   preferedDistance: 5
   visionRange: 10
   strafes: 1
-  reloadTime: 0.3
-  projectile: {fileID: 3539943915908971290, guid: a6c146e59f18824439623c09acab2286, type: 3}
+  reloadTime: 1
+  projectile: {fileID: 6769692529768600951, guid: ed233f23bf75f31489510d6944008fe8, type: 3}
   bulletSpawn: {fileID: 7646462510807457362}
 --- !u!58 &7646462510661366283
 CircleCollider2D:
