@@ -31,15 +31,10 @@ public class Projectile : MonoBehaviour
         bulletRB = GetComponent<Rigidbody2D>();
         if (objectSpawnOnDeath != null)
         {
-            if(objectSpawnOnDeath.GetComponent<PlayerHurtbox>())
-                if (objectSpawnOnDeath.GetComponent<PlayerHurtbox>().damageType == EnemyHealth.shieldTypes.Pink)
-                    firstSpawn = true;
-            if (objectSpawnOnDeath.GetComponent<EnemyHurtbox>())
-                if (objectSpawnOnDeath.GetComponent<EnemyHurtbox>().damageType == EnemyHealth.shieldTypes.Pink)
-                    firstSpawn = true;
+            firstSpawn = true;
 
         }
-        DestroyBullet(bulletDeathWait);
+        StartCoroutine(DestroyBullet(bulletDeathWait));
         transform.Rotate(0, 0, Random.Range(-bloom, bloom));
     }
 
@@ -62,7 +57,7 @@ public class Projectile : MonoBehaviour
 
         if (bulletSpeed < 0 && Vector2.Distance(transform.position, myOwner.transform.position) < .2f)
         {
-            DestroyBullet(0);
+            StartCoroutine(DestroyBullet(0));
         }
     }
 
@@ -72,7 +67,7 @@ public class Projectile : MonoBehaviour
         {
             if (bulletSpeedDampening == 0 && lr == null)
             {
-                DestroyBullet(0);
+                StartCoroutine(DestroyBullet(0));
             }
             else if (bulletSpeed > 0 && lr == null)
             {
@@ -84,19 +79,20 @@ public class Projectile : MonoBehaviour
             }
         }
     }
-    private void DestroyBullet(float seconds)
+    private IEnumerator DestroyBullet(float seconds)
     {
-        if (objectSpawnOnDeath != null && !firstSpawn)
+        yield return new WaitForSeconds(seconds);
+        if (objectSpawnOnDeath != null && firstSpawn)
         {
             Instantiate(objectSpawnOnDeath, transform.position, transform.rotation);
         }
-        Destroy(gameObject,seconds);
+        Destroy(gameObject);
         firstSpawn = false;
     }
     public void HitCharacter()
     {
         if (bulletSpeedDampening == 0 && lr != null)
-            DestroyBullet(0);
+            StartCoroutine(DestroyBullet(0));
         else if(bulletSpeedDampening != 0)
         {
             if (bulletSpeed > 0)

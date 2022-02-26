@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 0
-  bulletDeathWait: 1
+  bulletDeathWait: 0.25
   bloom: 0
   bulletSpeedDampening: 0
   objectSpawnOnDeath: {fileID: 2555045379651613469, guid: 69645b48e6f025648a33363680e4564a, type: 3}
