@@ -9,6 +9,7 @@ public class PlayerBehaviors : MonoBehaviour
     public PlayerCharacter [] characters;
     [SerializeField] Color[] characterColors;
     [SerializeField] GameObject selectionCircle;
+    [SerializeField] GameObject nextSelectionCircle;
     [SerializeField] float switchTimeWait;
     [SerializeField] WallsDetection[] detectionWalls;
     int closestCharacter;
@@ -39,6 +40,13 @@ public class PlayerBehaviors : MonoBehaviour
     void Update()
     {
         closestCharacter = FindClosestCharacter();
+        nextSelectionCircle.transform.position = characters[closestCharacter].transform.position;
+        if (detectionWalls[closestCharacter].IsWallThere())
+            nextSelectionCircle.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, .3f);
+        else
+            nextSelectionCircle.GetComponent<SpriteRenderer>().color = new Color(.75f, .75f, .75f, .3f);
+
+
         if (Input.GetMouseButton(0))
         {
             currentWeapons[currentCharacter].GetComponent<WeaponsBehaviors>().FireWeapon(currentCharacter);
