@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 998524481
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 46f17ce12cead3849b34d12b7189c6b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -139,7 +139,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7646462510661366281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,8 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca71c0d561397c49aa740e17a627935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  preferedDistance: 5
+  speed: 3.5
+  rotateSpeed: 7.5
+  preferedDistance: 4.5
   visionRange: 10
   strafes: 1
   reloadTime: 0.3
@@ -289,7 +290,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 998524481
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4a09ea1b6c496c147922284dd42daf13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -53,12 +53,15 @@ public class Projectile : MonoBehaviour
         }
         if (bulletSpeed < 0)
         {
-            transform.up = (Vector2)transform.position - (Vector2)myOwner.transform.position;
+            if(myOwner != null)
+                transform.up = (Vector2)transform.position - (Vector2)myOwner.transform.position;
+            else
+                StartCoroutine(DestroyBullet(0));
         }
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
         bulletSpeed -= bulletSpeedDampening * Time.deltaTime;
 
-        if (bulletSpeed < 0 && Vector2.Distance(transform.position, myOwner.transform.position) < .2f)
+        if (bulletSpeed < 0 && myOwner != null && Vector2.Distance(transform.position, myOwner.transform.position) < .2f)
         {
             StartCoroutine(DestroyBullet(0));
         }

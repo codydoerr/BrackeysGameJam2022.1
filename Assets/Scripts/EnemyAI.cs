@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Movement")]
     public float speed;
+    public float rotateSpeed;
     public float preferedDistance;
     public float visionRange;
     public bool strafes;
@@ -29,8 +30,9 @@ public class EnemyAI : MonoBehaviour
         canAttack = true;
         player = FindObjectOfType<PlayerBehaviors>();
         rb = GetComponent<Rigidbody2D>();
+        lastPlayerPos = Vector2.zero;
 
-        if(strafes)
+        if (strafes)
         {
             strafeRight = Random.value > .5;
         }
@@ -40,19 +42,22 @@ public class EnemyAI : MonoBehaviour
     {
         currentCharacter = player.characters[player.currentCharacter].gameObject;
 
-        if(awake && CanSeePlayer())
+        if (awake && CanSeePlayer())
         {
             lastPlayerPos = currentCharacter.transform.position;
-            transform.up = currentCharacter.transform.position - transform.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, currentCharacter.transform.position - transform.position)), rotateSpeed * Time.deltaTime);
+
+            float usedSpeed = speed;
 
             Vector2 direction = Vector2.zero;
             if (Vector2.Distance(transform.position, currentCharacter.transform.position) > preferedDistance)
                 direction = currentCharacter.transform.position - transform.position;
-            else if (Mathf.Abs(Vector2.Distance(transform.position, currentCharacter.transform.position) - preferedDistance) > .25f)
+            else if (Mathf.Abs(Vector2.Distance(transform.position, currentCharacter.transform.position) - preferedDistance) > .4f)
                 direction = transform.position - currentCharacter.transform.position;
             else if (strafes)
             {
-                if(strafeRight)
+                usedSpeed /= 2;
+                if (strafeRight)
                     direction = Vector2.Perpendicular(transform.position - currentCharacter.transform.position);
                 else
                     direction = -Vector2.Perpendicular(transform.position - currentCharacter.transform.position);
@@ -61,16 +66,16 @@ public class EnemyAI : MonoBehaviour
             if (direction != Vector2.zero)
                 direction.Normalize();
 
-            rb.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
+            rb.MovePosition((Vector2)transform.position + (direction * usedSpeed * Time.fixedDeltaTime));
 
             if (canAttack)
                 StartCoroutine(Shoot());
         }
-        else if (awake)
+        else if (awake && lastPlayerPos != Vector2.zero)
         {
             if (Vector2.Distance(transform.position, lastPlayerPos) > .1f)
             {
-                transform.up = lastPlayerPos - (Vector2)transform.position;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, lastPlayerPos - (Vector2)transform.position)), rotateSpeed * Time.deltaTime);
                 Vector2 direction = lastPlayerPos - (Vector2)transform.position;
 
                 direction.Normalize();
