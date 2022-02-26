@@ -10,12 +10,23 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
     [SerializeField] GameObject objectSpawnOnDeath;
+    Vector3[] points = new Vector3[2];
+    BoxCollider2D col;
+    LineRenderer lr;
     Rigidbody2D bulletRB;
     public GameObject myOwner;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        if (GetComponent<LineRenderer>())
+        {
+            col = GetComponent<BoxCollider2D>();
+            lr = GetComponent<LineRenderer>();
+            points[0] = transform.position;
+        }
+
         bulletRB = GetComponent<Rigidbody2D>();
         DestroyBullet(bulletDeathWait);
         transform.Rotate(0, 0, Random.Range(-bloom, bloom));
@@ -24,6 +35,13 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<LineRenderer>())
+        {
+            points[1] = transform.position;
+            col.size = new Vector2(0.125f,(points[0] - points[1]).magnitude);
+            col.offset = new Vector2(0, (-(points[0] - points[1]).magnitude / 2)-.5f);
+            lr.SetPositions(points);
+        }
         if (bulletSpeed < 0)
         {
             transform.up = (Vector2)transform.position - (Vector2)myOwner.transform.position;
@@ -51,19 +69,12 @@ public class Projectile : MonoBehaviour
             }
         }
     }
-
-    IEnumerator LaserDamage(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        if (objectSpawnOnDeath != null)
-        {
-            Instantiate(objectSpawnOnDeath, transform.position, Quaternion.identity);
-        }
-    }
-
     private void DestroyBullet(float seconds)
     {
-        StartCoroutine(LaserDamage(seconds));
+        if (objectSpawnOnDeath != null)
+        {
+            Instantiate(objectSpawnOnDeath, transform.position, transform.rotation);
+        }
         Destroy(gameObject,seconds);
     }
 
