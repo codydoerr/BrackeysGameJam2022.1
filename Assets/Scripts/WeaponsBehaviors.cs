@@ -13,7 +13,6 @@ public class WeaponsBehaviors : MonoBehaviour
         if(canFire)
         {
             StartCoroutine(WeaponFireWait(fireWait));
-            Debug.Log("Bango" + weapon);
         }
 
     }

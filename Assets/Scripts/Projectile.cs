@@ -7,7 +7,6 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletDeathWait;
-    [SerializeField] float bulletPersistTime;
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
     [SerializeField] float damageAmount;

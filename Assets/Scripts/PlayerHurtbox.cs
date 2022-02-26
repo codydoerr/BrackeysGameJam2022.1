@@ -10,22 +10,8 @@ public class PlayerHurtbox : MonoBehaviour
     {
         if (collision.GetComponent<EnemyHealth>() != null)
         {
-            switch (damageType)
-            {
-                case EnemyHealth.shieldTypes.Orange:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    break;
-                case EnemyHealth.shieldTypes.Green:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    break;
-                case EnemyHealth.shieldTypes.Blue:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    break;
-                case EnemyHealth.shieldTypes.Pink:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    break;
-            }
-
+            collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+            Destroy(gameObject);
         }
     }
 }
