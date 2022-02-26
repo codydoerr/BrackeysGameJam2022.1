@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
         {
             points[1] = transform.position;
             col.size = new Vector2(0.125f,(points[0] - points[1]).magnitude);
-            col.offset = new Vector2(0, (-(points[0] - points[1]).magnitude / 2)-.5f);
+            col.offset = new Vector2(0, (-(points[0] - points[1]).magnitude / 2));
             lr.SetPositions(points);
         }
         if (bulletSpeed < 0)
@@ -59,13 +59,18 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)//layer 10 is Walls
         {
-            if(bulletSpeedDampening == 0)
+            if (bulletSpeedDampening == 0 && lr == null)
             {
                 DestroyBullet(0);
             }
-            else if (bulletSpeed > 0)
+            else if (bulletSpeed > 0 && lr == null)
             {
                 bulletSpeed = -bulletSpeed;
+            }
+            else if (lr != null)
+            {
+                Debug.Log(lr);
+                bulletSpeed = 0;
             }
         }
     }
@@ -80,9 +85,9 @@ public class Projectile : MonoBehaviour
 
     public void HitCharacter()
     {
-        if (bulletSpeedDampening == 0)
+        if (bulletSpeedDampening == 0 && lr != null)
             DestroyBullet(0);
-        else
+        else if(bulletSpeedDampening != 0)
         {
             if (bulletSpeed > 0)
             {
