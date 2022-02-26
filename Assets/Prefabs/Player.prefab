@@ -129,7 +129,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 4fa5cd2db06bb4b47a85fc370b07e776, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -391,7 +391,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 4fa5cd2db06bb4b47a85fc370b07e776, type: 3}
   m_Color: {r: 0.75, g: 0.75, b: 0.75, a: 0.29803923}
@@ -622,7 +622,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: be0f819bc9e808f47a3c315bc2e8b971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -861,7 +861,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 87df7d91ca89e3b4fb256810dab3060b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1010,7 +1010,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d16a41b170c655b4eb4d12418cd05a61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1093,7 +1093,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491146963
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5235295e083451744ba75d3b6bd1f197, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1519,5 +1519,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48bf6e5a968810408512c6b9cfc1878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireWait: 1.5
+  fireWait: 1
   bulletType: {fileID: 1692641384561528638, guid: a3bc4d927d26886409f27c2b8d6ef23a, type: 3}
