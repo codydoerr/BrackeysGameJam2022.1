@@ -98,12 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb9646835fcffc48a0a33cae15ad980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 7
+  bulletSpeed: 10
   bulletDeathWait: 3
-  bulletPersistTime: 0
-  bloom: 15
+  bloom: 10
   bulletSpeedDampening: 0
-  damageAmount: 0
   objectSpawnOnDeath: {fileID: 0}
   myOwner: {fileID: 0}
 --- !u!114 &-8069831938225778410
@@ -118,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7336caf6308355847966ec104f65c4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnsOnHit: 1
   damageType: 2
 --- !u!70 &6703160423831385550
 CapsuleCollider2D:
