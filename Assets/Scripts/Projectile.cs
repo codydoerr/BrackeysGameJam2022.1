@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
     {
         if(objectSpawnOnDeath != null)
         {
-            Instantiate(objectSpawnOnDeath);
+            Instantiate(objectSpawnOnDeath,transform.position, Quaternion.identity);
         }
         Destroy(gameObject,seconds);
     }
