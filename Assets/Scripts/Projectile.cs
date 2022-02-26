@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
             }
             else if (bulletSpeed > 0)
             {
-                bulletSpeed = 0;
+                bulletSpeed = -bulletSpeed;
             }
         }
     }
@@ -75,7 +75,7 @@ public class Projectile : MonoBehaviour
         {
             if (bulletSpeed > 0)
             {
-                bulletSpeed = 0;
+                bulletSpeed = -bulletSpeed;
             }
         }
     }
