@@ -40,7 +40,6 @@ public class EnemyHealth : MonoBehaviour
 
     private Color GetSheildColor()
     {
-        Debug.Log(shieldTypes.Orange);
         if(shields[currentSheild] == shieldTypes.Orange)
             return new Color(.827f, 0.552f, 0.274f);
         else if (shields[currentSheild] == shieldTypes.Green)

@@ -10,17 +10,20 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
     [SerializeField] GameObject objectSpawnOnDeath;
+    [SerializeField] bool piercing;
     bool firstSpawn;
     Vector3[] points = new Vector3[2];
     BoxCollider2D col;
     LineRenderer lr;
     Rigidbody2D bulletRB;
     public GameObject myOwner;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        if(GetComponent<Rigidbody2D>())
+            rb = GetComponent<Rigidbody2D>();
         if (GetComponent<LineRenderer>())
         {
             col = GetComponent<BoxCollider2D>();
@@ -61,11 +64,21 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    /*
+    private void FixedUpdate()
+    {
+        if(rb)
+        {
+            rb.MovePosition((Vector2)transform.position + (Vector2)transform.up * bulletSpeed * Time.fixedDeltaTime);
+        }
+    }
+    */
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 10)//layer 10 is Walls
         {
-            if (bulletSpeedDampening == 0 && lr == null)
+            if (bulletSpeedDampening <= 0 && lr == null && !piercing)
             {
                 StartCoroutine(DestroyBullet(0));
             }
@@ -91,9 +104,11 @@ public class Projectile : MonoBehaviour
     }
     public void HitCharacter()
     {
-        if (bulletSpeedDampening == 0 && lr != null)
+        if (bulletSpeedDampening <= 0 && lr == null && !piercing)
+        {
             StartCoroutine(DestroyBullet(0));
-        else if(bulletSpeedDampening != 0)
+        }
+        else if (bulletSpeedDampening > 0)
         {
             if (bulletSpeed > 0)
             {
