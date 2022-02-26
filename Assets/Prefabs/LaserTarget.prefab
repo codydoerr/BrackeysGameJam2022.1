@@ -96,11 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb9646835fcffc48a0a33cae15ad980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 5000
+  bulletSpeed: 10
   bulletDeathWait: 1
   bloom: 0
   bulletSpeedDampening: 0
-  damageAmount: 0
   objectSpawnOnDeath: {fileID: 0}
   myOwner: {fileID: 0}
 --- !u!120 &-451166985771339135
