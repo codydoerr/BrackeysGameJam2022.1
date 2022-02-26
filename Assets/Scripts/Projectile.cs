@@ -7,7 +7,6 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletDeathWait;
-    [SerializeField] float bulletPersistTime;
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
     [SerializeField] float damageAmount;
@@ -60,7 +59,7 @@ public class Projectile : MonoBehaviour
     {
         if(objectSpawnOnDeath != null)
         {
-            Instantiate(objectSpawnOnDeath);
+            Instantiate(objectSpawnOnDeath,transform.position, Quaternion.identity);
         }
         Destroy(gameObject,seconds);
     }
