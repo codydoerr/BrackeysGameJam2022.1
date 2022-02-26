@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2462755180807375197}
   - component: {fileID: -723924588683692442}
   - component: {fileID: -5037482267219618297}
-  - component: {fileID: 4325218423717554153}
+  - component: {fileID: 3052612643619520844}
   m_Layer: 0
-  m_Name: RocketBullet
+  m_Name: Enemy Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0d3d4c72408185341873c47a03470415, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   bulletDeathWait: 3
   bloom: 0
   bulletSpeedDampening: -15
-  objectSpawnOnDeath: {fileID: 5355828193694975833, guid: b1029ac0eb530df41aee93c39252f704, type: 3}
+  objectSpawnOnDeath: {fileID: 5355828193694975833, guid: 49ef29c140362be4ca40c9f778040368, type: 3}
   piercing: 0
   myOwner: {fileID: 0}
 --- !u!70 &-723924588683692442
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4325218423717554153
+--- !u!114 &3052612643619520844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1692641384561528638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7336caf6308355847966ec104f65c4a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 41b90b13ac2675c46b5c3229bef2c9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 4
+  damage: 0

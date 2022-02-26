@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public enum shieldTypes { Orange, Green, Blue, Pink};
+    public enum shieldTypes { Orange, Green, Blue, Pink, None};
 
     public SpriteRenderer shield;
     public shieldTypes[] shields;
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
                 SetShieldColor();
             }
         }
-        else
+        else if (damageType != shieldTypes.None)
             Destroy(gameObject);
     }
 
