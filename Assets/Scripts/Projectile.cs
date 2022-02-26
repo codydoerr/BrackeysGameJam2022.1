@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
     [SerializeField] GameObject objectSpawnOnDeath;
+    bool firstSpawn;
     Vector3[] points = new Vector3[2];
     BoxCollider2D col;
     LineRenderer lr;
@@ -28,6 +29,16 @@ public class Projectile : MonoBehaviour
         }
 
         bulletRB = GetComponent<Rigidbody2D>();
+        if (objectSpawnOnDeath != null)
+        {
+            if(objectSpawnOnDeath.GetComponent<PlayerHurtbox>())
+                if (objectSpawnOnDeath.GetComponent<PlayerHurtbox>().damageType == EnemyHealth.shieldTypes.Pink)
+                    firstSpawn = true;
+            if (objectSpawnOnDeath.GetComponent<EnemyHurtbox>())
+                if (objectSpawnOnDeath.GetComponent<EnemyHurtbox>().damageType == EnemyHealth.shieldTypes.Pink)
+                    firstSpawn = true;
+
+        }
         DestroyBullet(bulletDeathWait);
         transform.Rotate(0, 0, Random.Range(-bloom, bloom));
     }
@@ -69,20 +80,19 @@ public class Projectile : MonoBehaviour
             }
             else if (lr != null)
             {
-                Debug.Log(lr);
                 bulletSpeed = 0;
             }
         }
     }
     private void DestroyBullet(float seconds)
     {
-        if (objectSpawnOnDeath != null)
+        if (objectSpawnOnDeath != null && !firstSpawn)
         {
             Instantiate(objectSpawnOnDeath, transform.position, transform.rotation);
         }
         Destroy(gameObject,seconds);
+        firstSpawn = false;
     }
-
     public void HitCharacter()
     {
         if (bulletSpeedDampening == 0 && lr != null)

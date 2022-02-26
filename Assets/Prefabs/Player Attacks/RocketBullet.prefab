@@ -99,10 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   bulletDeathWait: 3
-  bulletPersistTime: 0
   bloom: 10
   bulletSpeedDampening: 0
-  damageType: 3
+  objectSpawnOnDeath: {fileID: 5355828193694975833, guid: b1029ac0eb530df41aee93c39252f704, type: 3}
   myOwner: {fileID: 0}
 --- !u!70 &-723924588683692442
 CapsuleCollider2D:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHurtbox : MonoBehaviour
 {
-    [SerializeField] EnemyHealth.shieldTypes damageType;
+    public EnemyHealth.shieldTypes damageType;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
