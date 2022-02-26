@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class PlayerHurtbox : MonoBehaviour
 {
-    EnemyHealth.shieldTypes damageType;
+    [SerializeField] EnemyHealth.shieldTypes damageType;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<EnemyHealth>())
+        if (collision.GetComponent<EnemyHealth>() != null)
         {
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damageType);
+            switch (damageType)
+            {
+                case EnemyHealth.shieldTypes.Orange:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    break;
+                case EnemyHealth.shieldTypes.Green:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    break;
+                case EnemyHealth.shieldTypes.Blue:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    break;
+                case EnemyHealth.shieldTypes.Pink:
+                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
+                    break;
+            }
+
         }
     }
 }

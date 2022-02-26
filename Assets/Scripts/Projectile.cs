@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bulletPersistTime;
     [SerializeField] float bloom;
     [SerializeField] float bulletSpeedDampening;
-    [SerializeField] EnemyHealth.shieldTypes damageType;
     [SerializeField] float damageAmount;
     Rigidbody2D bulletRB;
     public GameObject myOwner;
@@ -23,33 +22,11 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.GetComponent<EnemyHealth>() != null && collision.gameObject != myOwner)
-        {
-            switch (damageType)
-            {
-                case EnemyHealth.shieldTypes.Orange:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    break;
-                case EnemyHealth.shieldTypes.Green:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    break;
-                case EnemyHealth.shieldTypes.Blue:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    DestroyBullet(bulletDeathWait);
-                    break;
-                case EnemyHealth.shieldTypes.Pink:
-                    collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-                    DestroyBullet(bulletDeathWait);
-                    break;
-            }
-
-        }
-        else if(collision.GetComponent<PlayerCharacter>() != null && collision.gameObject != myOwner)
+        if(collision.GetComponent<PlayerCharacter>() != null && collision.gameObject != myOwner)
         {
             collision.GetComponent<PlayerCharacter>().TakeDamage(damageAmount);
         }
-        else if (collision.gameObject == myOwner && damageType == EnemyHealth.shieldTypes.Orange)
+        else if (collision.gameObject == myOwner)
         {
             Debug.Log(myOwner);
             DestroyBullet(0);
@@ -57,18 +34,11 @@ public class Projectile : MonoBehaviour
         else if(collision.gameObject.layer == 10)//layer 10 is Walls
         { 
 
-            if(damageType != EnemyHealth.shieldTypes.Orange)
+            if (bulletSpeed > 0)
             {
-                DestroyBullet(0);
+                bulletSpeed = 0;
             }
-            else
-            {
-                if (bulletSpeed > 0)
-                {
-                    bulletSpeed = 0;
-                }
-            }
-        
+
         }
     }
     // Update is called once per frame
