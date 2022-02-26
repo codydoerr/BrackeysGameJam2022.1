@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemyHurtbox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int damage;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.GetComponent<PlayerCharacter>() != null)
+        {
+            collision.GetComponent<PlayerCharacter>().TakeDamage(damage);
+            if (GetComponent<Projectile>())
+                GetComponent<Projectile>().HitCharacter();
+            else
+                Destroy(gameObject);
+        }
     }
 }

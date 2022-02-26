@@ -15,21 +15,18 @@ public class PlayerHealth : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (curHealth < 0 && !playerDead)
-        {
-            PlayerDeath();
-            playerDead = true;
-        }
-    }
     public void TakeDamage(float damage)
     {
         if (canTakeDamage)
         {
             curHealth -= damage;
             StartCoroutine(InvFrames(invFrames));
+
+            if (curHealth < 0 && !playerDead)
+            {
+                PlayerDeath();
+                playerDead = true;
+            }
         }
 
     }

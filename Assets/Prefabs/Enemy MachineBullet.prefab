@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1378844400712475612}
   - component: {fileID: 7157064543838777555}
   - component: {fileID: 1716570855752521076}
+  - component: {fileID: 1856311883651805249}
   - component: {fileID: 2852215199152227922}
+  - component: {fileID: 3456627628626824894}
   m_Layer: 0
   m_Name: Enemy MachineBullet
   m_TagString: Untagged
@@ -98,12 +100,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 7
   bulletDeathWait: 3
-  bulletPersistTime: 0
   bloom: 0
   bulletSpeedDampening: 0
-  damageType: 0
-  damageAmount: 1
+  objectSpawnOnDeath: {fileID: 0}
   myOwner: {fileID: 0}
+--- !u!114 &1856311883651805249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539943915908971290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b90b13ac2675c46b5c3229bef2c9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!70 &2852215199152227922
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -120,3 +133,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.125, y: 0.21875}
   m_Direction: 0
+--- !u!114 &3456627628626824894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539943915908971290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b90b13ac2675c46b5c3229bef2c9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5

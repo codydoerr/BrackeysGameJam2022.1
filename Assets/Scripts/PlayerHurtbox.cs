@@ -11,7 +11,10 @@ public class PlayerHurtbox : MonoBehaviour
         if (collision.GetComponent<EnemyHealth>() != null)
         {
             collision.GetComponent<EnemyHealth>().TakeDamage(damageType);
-            Destroy(gameObject);
+            if (GetComponent<Projectile>())
+                GetComponent<Projectile>().HitCharacter();
+            else
+                Destroy(gameObject);
         }
     }
 }
