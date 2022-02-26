@@ -47,6 +47,9 @@ TagManager:
   - name: Walls
     uniqueID: 17687479
     locked: 0
+  - name: Traps
+    uniqueID: 2676681099
+    locked: 0
   - name: Bullets
     uniqueID: 714580263
     locked: 0
