@@ -12080,6 +12080,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4199149282321055835, guid: 970c1bc8193113e44a0ca0e3ab8c0a97, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6065980835729912749, guid: 970c1bc8193113e44a0ca0e3ab8c0a97, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -12275,7 +12279,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 36}
+  m_SizeDelta: {x: 238.0917, y: 24.0918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445674942
 MonoBehaviour:
@@ -12297,8 +12301,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 690b77c383110b948b90b2317d2316a9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
