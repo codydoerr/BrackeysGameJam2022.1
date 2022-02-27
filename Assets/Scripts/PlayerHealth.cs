@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
             curHealth -= damage;
             StartCoroutine(InvFrames(invFrames));
 
-            if (curHealth < 0 && !playerDead)
+            if (curHealth <= 0 && !playerDead)
             {
                 PlayerDeath();
                 playerDead = true;
