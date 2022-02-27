@@ -10,12 +10,14 @@ public class TrapBehaviors : MonoBehaviour
     [SerializeField] GameObject curEnemies;
     [SerializeField] GameObject boss;
     public bool roomNotEmpty;
+    bool bossDed;
     // Start is called before the first frame update
     void Start()
     {
         if(enemies.Length !=0 && curEnemies)
         {
             curEnemies = enemies[0];
+            Instantiate(curEnemies, transform.position, transform.rotation);
         }
         roomNotEmpty = true;
         if (time != 0)
@@ -27,23 +29,20 @@ public class TrapBehaviors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemies.Length != 0)
+        if(enemies.Length != 0 && boss)
         {
-            if (boss)
-            {
-                if (boss.GetComponent<EnemyHealth>().currentSheild > 5)
+                if (boss.GetComponent<EnemyHealth>().currentSheild < 15)
                 {
                     curEnemies = enemies[1];
                 }
-                else if (boss.GetComponent<EnemyHealth>().currentSheild > 10)
+                else if (boss.GetComponent<EnemyHealth>().currentSheild < 10)
                 {
                     curEnemies = enemies[2];
                 }
-                else if (boss.GetComponent<EnemyHealth>().currentSheild > 15)
+                else if (boss.GetComponent<EnemyHealth>().currentSheild > 5)
                 {
                     curEnemies = enemies[3];
                 }
-            }
         }
     }
     IEnumerator laserTime(float seconds)
@@ -51,11 +50,11 @@ public class TrapBehaviors : MonoBehaviour
         while (roomNotEmpty)
         {
             yield return new WaitForSeconds(seconds);
-            if (enemies.Length != 0)
+            if (enemies.Length != 0 && boss != null)
             {
                 Instantiate(curEnemies, transform.position, transform.rotation);
             }
-            else
+            else if(spawn != null)
                 Instantiate(spawn,transform.position,transform.rotation);
         }
     }
