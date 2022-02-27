@@ -12,6 +12,9 @@ public class PlayerBehaviors : MonoBehaviour
     [SerializeField] GameObject nextSelectionCircle;
     [SerializeField] float switchTimeWait;
     [SerializeField] WallsDetection[] detectionWalls;
+    [SerializeField] AudioSource footstepSound;
+    [SerializeField] AudioSource switchSound;
+    [SerializeField] AudioSource failedSwitchSound;
     int closestCharacter;
     float distance;
     bool changingView = false;
@@ -33,8 +36,23 @@ public class PlayerBehaviors : MonoBehaviour
     {
         changingView = false;
         playerRB = GetComponent<Rigidbody2D>();
-        ChangeGunnerView(closestCharacter);
+        StartCoroutine(PlayFootsteps());
 
+        for (int i = 0; i < characters.Length; i++)
+        {
+            if (i != currentCharacter)
+            {
+                characters[i].sprite.color = new Color(1, 1, 1, alphaChange);
+                characters[i].col.enabled = false;
+            }
+            else
+            {
+                characters[i].sprite.color = new Color(1, 1, 1, 1);
+                characters[i].col.enabled = true;
+                selectionCircle.transform.SetPositionAndRotation(characters[i].transform.position, Quaternion.identity);
+                selectionCircle.GetComponent<SpriteRenderer>().color = new Color(characterColors[i].r, characterColors[i].g, characterColors[i].b, 1);
+            }
+        }
     }
     // Update is called once per frame
     void Update()
@@ -80,49 +98,31 @@ public class PlayerBehaviors : MonoBehaviour
     {
         if (!detectionWalls[newGunner].IsWallThere())
         {
-            currentCharacter = newGunner;
-
-            for (int i = 0; i < characters.Length; i++)
+            if (newGunner != currentCharacter)
             {
-                if (i != currentCharacter)
+                currentCharacter = newGunner;
+                switchSound.Play();
+                for (int i = 0; i < characters.Length; i++)
                 {
-                    characters[i].sprite.color = new Color(1, 1, 1, alphaChange);
-                    characters[i].col.enabled = false;
+                    if (i != currentCharacter)
+                    {
+                        characters[i].sprite.color = new Color(1, 1, 1, alphaChange);
+                        characters[i].col.enabled = false;
+                    }
+                    else
+                    {
+                        characters[i].sprite.color = new Color(1, 1, 1, 1);
+                        characters[i].col.enabled = true;
+                        selectionCircle.transform.SetPositionAndRotation(characters[i].transform.position, Quaternion.identity);
+                        selectionCircle.GetComponent<SpriteRenderer>().color = new Color(characterColors[i].r, characterColors[i].g, characterColors[i].b, 1);
+                    }
                 }
-                else
-                {
-                    characters[i].sprite.color = new Color(1, 1, 1, 1);
-                    characters[i].col.enabled = true;
-                    selectionCircle.transform.SetPositionAndRotation(characters[i].transform.position, Quaternion.identity);
-                    selectionCircle.GetComponent<SpriteRenderer>().color = new Color(characterColors[i].r, characterColors[i].g, characterColors[i].b, 1);
-                }
-            }
-        }
-
-        /*if (press != KeyCode.Space)
-        {
-            switch (press)
-            {
-                case KeyCode.Alpha1:
-                    cameraLocation = 0;
-                    return;
-                case KeyCode.Alpha2:
-                    cameraLocation = 1;
-                    return;
-                case KeyCode.Alpha3:
-                    cameraLocation = 2;
-                    return;
-                case KeyCode.Alpha4:
-                    cameraLocation = 3;
-                    return;
             }
         }
         else
         {
-
+            failedSwitchSound.Play();
         }
-        */
-
     }
     IEnumerator SwitchTimer(float seconds)
     {
@@ -146,5 +146,23 @@ public class PlayerBehaviors : MonoBehaviour
             }
             playerRB.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
         
+    }
+
+    private IEnumerator PlayFootsteps()
+    {
+        while (true)
+        {
+            Xinput = Input.GetAxis("Horizontal");
+            Yinput = Input.GetAxis("Vertical");
+
+            direction = new Vector2(Xinput, Yinput);
+
+            if (direction.magnitude > .5f)
+            {
+                footstepSound.Play();
+                yield return new WaitForSeconds(.3f);
+            }
+            yield return new WaitForSeconds(.001f);
+        }
     }
 }
