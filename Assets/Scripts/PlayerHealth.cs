@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int curHealth, maxHealth;
     [SerializeField] Animator playerHurtAnim;
     [SerializeField] AudioSource playerHurtSound;
+    [SerializeField] AudioSource playerHealSound;
     bool canTakeDamage;
     bool playerDead;
 
@@ -43,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
     }
     public void HealDamage(int healAmount)
     {
+        playerHealSound.Play();
+        playerHurtAnim.SetTrigger("Heal");
         if (curHealth < maxHealth)
         {
             curHealth += healAmount;
