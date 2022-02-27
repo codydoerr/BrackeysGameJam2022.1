@@ -4,49 +4,17 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
+    [SerializeField] float cameraSpeed;
     [SerializeField] GameObject[] cameraLocations;
-    int cameraLocation;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] PlayerBehaviors playerBeh;
+    private void Start()
     {
-        
+        playerBeh = transform.parent.GetComponent<PlayerBehaviors>();
+        transform.SetParent(null);
+
     }
-
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = (cameraLocations[cameraLocation].transform.position);
-    }
-    public void ChangeWeapons(KeyCode press)
-    {
-        /*if (press != KeyCode.Space)
-        {
-            switch (press)
-            {
-                case KeyCode.Alpha1:
-                    cameraLocation = 0;
-                    return;
-                case KeyCode.Alpha2:
-                    cameraLocation = 1;
-                    return;
-                case KeyCode.Alpha3:
-                    cameraLocation = 2;
-                    return;
-                case KeyCode.Alpha4:
-                    cameraLocation = 3;
-                    return;
-            }
-        }
-        else
-        {
-
-        }
-        */
-        if(press == KeyCode.Space)
-        {
-            cameraLocation++;
-            cameraLocation = cameraLocation % 4;
-        }
+        transform.position = Vector2.Lerp(new Vector3(transform.position.x, transform.position.y,10),new Vector3(cameraLocations[playerBeh.currentCharacter].transform.position.x, cameraLocations[playerBeh.currentCharacter].transform.position.y,10), cameraSpeed * Time.deltaTime);
     }
 }
