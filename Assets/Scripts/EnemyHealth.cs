@@ -51,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
         if(shields[shield] == shieldTypes.Orange)
             return new Color(.827f, 0.552f, 0.274f);
         else if (shields[shield] == shieldTypes.Green)
-            return new Color(shield, 0.658f, 0.219f);
+            return new Color(0.827f, 0.658f, 0.219f);
         else if (shields[shield] == shieldTypes.Blue)
             return new Color(.4f, .6f, .8f);
         else
