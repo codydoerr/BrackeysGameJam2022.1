@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a078da0387b33b9418fa817eaca596f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
+  time: 15
   spawn: {fileID: 0}
   enemies:
   - {fileID: 7646462510661366287, guid: 7c0fdee446139dc4a8e4d58a6d9e44b9, type: 3}
@@ -51,4 +51,5 @@ MonoBehaviour:
   - {fileID: 7646462510661366287, guid: 62296b494517d344cac95c81a263b7bc, type: 3}
   - {fileID: 7646462510661366287, guid: 8df94455bd317ef4baf64fce4fb76a2d, type: 3}
   curEnemies: {fileID: 0}
+  boss: {fileID: 0}
   roomNotEmpty: 0
