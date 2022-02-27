@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         
         currentHealth = playerHealth.GetPlayerHealth();
         healthBar.GetComponent<Slider>().value = currentHealth;
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
                 UnPauseGame();
