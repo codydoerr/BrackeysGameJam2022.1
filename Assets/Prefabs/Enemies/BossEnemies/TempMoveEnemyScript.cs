@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TempMoveEnemyScript : MonoBehaviour
 {
+    [SerializeField] GameObject moveHere;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,6 @@ public class TempMoveEnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetComponent<Rigidbody2D>().MovePosition(moveHere.transform.position);
     }
 }
