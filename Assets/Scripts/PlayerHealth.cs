@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float curHealth, maxHealth, invFrames;
+    [SerializeField] Animator playerHurtAnim;
     bool canTakeDamage;
     bool playerDead;
 
@@ -22,10 +23,14 @@ public class PlayerHealth : MonoBehaviour
             curHealth -= damage;
             StartCoroutine(InvFrames(invFrames));
 
-            if (curHealth < 0 && !playerDead)
+            if (curHealth <= 0 && !playerDead)
             {
                 PlayerDeath();
                 playerDead = true;
+            }
+            else
+            {
+                playerHurtAnim.SetTrigger("Hurt");
             }
         }
 
@@ -43,7 +48,8 @@ public class PlayerHealth : MonoBehaviour
     }
     void PlayerDeath()
     {
-        Debug.Log("Wow such loser");
+        playerHurtAnim.SetTrigger("Die");
+        FindObjectOfType<SceneTransition>().ResetScene();
     }
     IEnumerator InvFrames(float seconds)
     {
