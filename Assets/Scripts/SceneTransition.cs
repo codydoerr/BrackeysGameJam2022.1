@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Animator anim;
+    private string newScene;
+
     void Start()
     {
-        
+        anim = GetComponent<Animator>();    
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetScene()
     {
-        
+        newScene = SceneManager.GetActiveScene().name;
+        anim.SetTrigger("Scene End");
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        newScene = sceneName;
+        anim.SetTrigger("Scene End");
+    }
+
+    public void LoadSceneEnd()
+    {
+        if (newScene == "Level 1")
+            FindObjectOfType<Music>().playingGameMusic = true;
+        else if(newScene == "Title")
+            FindObjectOfType<Music>().playingGameMusic = false;
+
+        SceneManager.LoadScene(newScene);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
