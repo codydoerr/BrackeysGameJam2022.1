@@ -30,21 +30,22 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
     }
 
+
     private void SetShieldColor()
     {
         if (currentSheild > -1)
-            shield.color = GetSheildColor();
+            shield.color = GetSheildColor(currentSheild);
         else
             shield.color = new Color(0, 0, 0, 0);
     }
 
-    private Color GetSheildColor()
+    private Color GetSheildColor(int shield)
     {
-        if(shields[currentSheild] == shieldTypes.Orange)
+        if(shields[shield] == shieldTypes.Orange)
             return new Color(.827f, 0.552f, 0.274f);
-        else if (shields[currentSheild] == shieldTypes.Green)
-            return new Color(0.219f, 0.658f, 0.219f);
-        else if (shields[currentSheild] == shieldTypes.Blue)
+        else if (shields[shield] == shieldTypes.Green)
+            return new Color(shield, 0.658f, 0.219f);
+        else if (shields[shield] == shieldTypes.Blue)
             return new Color(.4f, .6f, .8f);
         else
             return new Color(.8f, .4f, .733f);

@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 8813751512835504292}
   shields: 00000000020000000100000003000000
+  indicator: {fileID: 1875425201652345472, guid: d1eaee41fbb8e3f4ea7fe924088ed507, type: 3}
   currentSheild: 0
 --- !u!114 &7646462510661366286
 MonoBehaviour:

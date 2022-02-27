@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float curHealth, maxHealth, invFrames;
+    [SerializeField] float invFrames;
+    [SerializeField] int curHealth, maxHealth;
+    [SerializeField] Animator playerHurtAnim;
     bool canTakeDamage;
     bool playerDead;
 
@@ -15,22 +17,29 @@ public class PlayerHealth : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (canTakeDamage)
         {
-            curHealth -= damage;
-            StartCoroutine(InvFrames(invFrames));
-
-            if (curHealth < 0 && !playerDead)
+            if (damage > 0)
             {
-                PlayerDeath();
-                playerDead = true;
+                curHealth -= damage;
+                StartCoroutine(InvFrames(invFrames));
+
+                if (curHealth <= 0 && !playerDead)
+                {
+                    PlayerDeath();
+                    playerDead = true;
+                }
+                else
+                {
+                    playerHurtAnim.SetTrigger("Hurt");
+                }
             }
         }
 
     }
-    public void HealDamage(float healAmount)
+    public void HealDamage(int healAmount)
     {
         if (curHealth < maxHealth)
         {
@@ -43,12 +52,16 @@ public class PlayerHealth : MonoBehaviour
     }
     void PlayerDeath()
     {
-        Debug.Log("Wow such loser");
+        playerHurtAnim.SetTrigger("Die");
     }
     IEnumerator InvFrames(float seconds)
     {
         canTakeDamage = false;
         yield return new WaitForSeconds(seconds);
         canTakeDamage = true;
+    }
+    public int GetPlayerHealth()
+    {
+        return curHealth;
     }
 }

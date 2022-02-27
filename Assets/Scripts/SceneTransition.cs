@@ -27,10 +27,13 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadSceneEnd()
     {
-        if (newScene == "Level 1")
-            FindObjectOfType<Music>().playingGameMusic = true;
-        else if(newScene == "Title")
-            FindObjectOfType<Music>().playingGameMusic = false;
+        if (FindObjectOfType<Music>())
+        {
+            if (newScene == "Level 1")
+                FindObjectOfType<Music>().playingGameMusic = true;
+            else if (newScene == "Title")
+                FindObjectOfType<Music>().playingGameMusic = false;
+        }
 
         SceneManager.LoadScene(newScene);
     }

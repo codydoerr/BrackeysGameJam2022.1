@@ -26,11 +26,11 @@ public class PlayerCharacter : MonoBehaviour
     {
         return aimPosition;
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         mainHealth.TakeDamage(damage);
     }
-    public void HealDamage(float healAmount)
+    public void HealDamage(int healAmount)
     {
         mainHealth.HealDamage(healAmount);
     }

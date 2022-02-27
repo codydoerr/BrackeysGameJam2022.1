@@ -903,8 +903,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 0
-  maxHealth: 10
+  maxHealth: 100
   invFrames: 0.5
+  playerHurtAnim: {fileID: 0}
 --- !u!82 &7525144382457170123
 AudioSource:
   m_ObjectHideFlags: 0

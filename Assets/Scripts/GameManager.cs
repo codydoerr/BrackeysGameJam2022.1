@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] int currentHealth;
     bool isPaused;
+    [SerializeField] GameObject healthBar;
+    [SerializeField] PlayerHealth playerHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        currentHealth = playerHealth.GetPlayerHealth();
+        healthBar.GetComponent<Slider>().value = currentHealth;
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused)
