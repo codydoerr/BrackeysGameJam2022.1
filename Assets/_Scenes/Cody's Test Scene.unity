@@ -14169,10 +14169,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1018389207245998396, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2145867830843366041, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -14187,15 +14183,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2145867830843366043, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7221026
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2145867830843366043, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2672775
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2145867830843366043, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -95.023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2145867830843366043, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14230,10 +14226,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5017348192485489088, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755308332240430335, guid: e1f763340362fcb4688c92d694e03c24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
