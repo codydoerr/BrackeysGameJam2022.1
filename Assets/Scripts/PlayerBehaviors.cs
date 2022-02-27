@@ -69,7 +69,7 @@ public class PlayerBehaviors : MonoBehaviour
         {
             currentWeapons[currentCharacter].GetComponent<WeaponsBehaviors>().FireWeapon(currentCharacter);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && canSwitch)
+        if ((Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(1)) && canSwitch)
         {
             changingView = true;
             StartCoroutine(SwitchTimer(switchTimeWait));
