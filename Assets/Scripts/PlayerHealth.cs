@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float curHealth, maxHealth, invFrames;
+    [SerializeField] float invFrames;
+    [SerializeField] int curHealth, maxHealth;
     [SerializeField] Animator playerHurtAnim;
     bool canTakeDamage;
     bool playerDead;
@@ -16,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (canTakeDamage)
         {
@@ -38,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
-    public void HealDamage(float healAmount)
+    public void HealDamage(int healAmount)
     {
         if (curHealth < maxHealth)
         {
@@ -58,5 +59,9 @@ public class PlayerHealth : MonoBehaviour
         canTakeDamage = false;
         yield return new WaitForSeconds(seconds);
         canTakeDamage = true;
+    }
+    public int GetPlayerHealth()
+    {
+        return curHealth;
     }
 }
