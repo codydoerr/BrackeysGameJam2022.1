@@ -20,17 +20,20 @@ public class PlayerHealth : MonoBehaviour
     {
         if (canTakeDamage)
         {
-            curHealth -= damage;
-            StartCoroutine(InvFrames(invFrames));
+            if (damage > 0)
+            {
+                curHealth -= damage;
+                StartCoroutine(InvFrames(invFrames));
 
-            if (curHealth <= 0 && !playerDead)
-            {
-                PlayerDeath();
-                playerDead = true;
-            }
-            else
-            {
-                playerHurtAnim.SetTrigger("Hurt");
+                if (curHealth <= 0 && !playerDead)
+                {
+                    PlayerDeath();
+                    playerDead = true;
+                }
+                else
+                {
+                    playerHurtAnim.SetTrigger("Hurt");
+                }
             }
         }
 
@@ -49,7 +52,6 @@ public class PlayerHealth : MonoBehaviour
     void PlayerDeath()
     {
         playerHurtAnim.SetTrigger("Die");
-        FindObjectOfType<SceneTransition>().ResetScene();
     }
     IEnumerator InvFrames(float seconds)
     {
