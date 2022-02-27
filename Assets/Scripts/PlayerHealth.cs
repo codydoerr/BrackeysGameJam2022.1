@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float invFrames;
     [SerializeField] int curHealth, maxHealth;
     [SerializeField] Animator playerHurtAnim;
+    [SerializeField] AudioSource playerHurtSound;
     bool canTakeDamage;
     bool playerDead;
 
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (damage > 0)
             {
+                playerHurtSound.Play();
                 curHealth -= damage;
                 StartCoroutine(InvFrames(invFrames));
 

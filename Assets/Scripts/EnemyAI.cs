@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     public float reloadTime;
     public GameObject projectile;
     public GameObject bulletSpawn;
+    public bool attackingRight;
 
     private PlayerBehaviors player;
     private GameObject currentCharacter;
@@ -26,6 +27,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        attackingRight = true;
         awake = true;
         canAttack = true;
         player = FindObjectOfType<PlayerBehaviors>();
@@ -102,6 +104,7 @@ public class EnemyAI : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(reloadTime);
         Projectile bul = Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation).GetComponent<Projectile>();
+        attackingRight = !attackingRight;
         bul.myOwner = gameObject;
         canAttack = true;
     }

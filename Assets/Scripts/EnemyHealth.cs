@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public SpriteRenderer shield;
     public shieldTypes[] shields;
     public int currentSheild;
+    public AudioSource shieldBreak;
+    public AudioSource shieldDelfect;
 
     private void Start()
     {
@@ -18,12 +20,17 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(shieldTypes damageType)
     {
-        if (currentSheild > -1)
+        if (currentSheild > -1 && damageType != shieldTypes.None)
         {
             if (shields[currentSheild] == damageType)
             {
+                shieldBreak.Play();
                 currentSheild--;
                 SetShieldColor();
+            }
+            else
+            {
+                shieldDelfect.Play();
             }
         }
         else if (damageType != shieldTypes.None)
@@ -44,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
         if(shields[shield] == shieldTypes.Orange)
             return new Color(.827f, 0.552f, 0.274f);
         else if (shields[shield] == shieldTypes.Green)
-            return new Color(shield, 0.658f, 0.219f);
+            return new Color(0.219f, 0.658f, 0.219f);
         else if (shields[shield] == shieldTypes.Blue)
             return new Color(.4f, .6f, .8f);
         else
