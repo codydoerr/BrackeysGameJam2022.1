@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     private Animator myAnim;
     private Collider2D col;
 
+    public string nextScene;
+
     private bool open;
 
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class Door : MonoBehaviour
     {
         if (!open)
         {
+
             bool enemiesAlive = false;
             foreach (GameObject en in enemies)
             {
@@ -31,7 +34,16 @@ public class Door : MonoBehaviour
             }
 
             if (enemiesAlive == false)
-                OpenDoor();
+            {
+                if (nextScene == "")
+                {
+                    OpenDoor();
+                }
+                else
+                {
+                    FindObjectOfType<SceneTransition>().LoadScene(nextScene);
+                }
+            }
         }
     }
 
